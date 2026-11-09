@@ -75,8 +75,16 @@ npx html-validate@8.24.2 "*.html"
 
 The workflow in `.github/workflows/pages.yml` publishes the site on every push.
 Enable it once in the repository settings: **Settings → Pages → Build and deployment →
-Source: GitHub Actions**. To use the petic-global.com domain, add a `CNAME` file containing
-the domain and point the domain's DNS at GitHub Pages.
+Source: GitHub Actions**. The `CNAME` file sets the custom domain to petic-global.com. For it to resolve, the domain's
+DNS must point at GitHub Pages:
+
+| Type | Host | Value |
+| --- | --- | --- |
+| A | @ | 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 |
+| CNAME | www | mariamfreijeh2001-gif.github.io |
+
+Then in **Settings → Pages → Custom domain**, confirm `petic-global.com` and tick
+**Enforce HTTPS** once the certificate is issued.
 
 ## Contact form
 
