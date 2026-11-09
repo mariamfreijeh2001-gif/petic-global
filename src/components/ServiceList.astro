@@ -1,0 +1,21 @@
+---
+/** Two-column list of services with a check icon. */
+import Icon from './Icon.astro';
+
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="services">
+  {items.map((item) => (
+    <div class="service">
+      <i>
+        <Icon name="check" />
+      </i>
+      <span set:html={item} />
+    </div>
+  ))}
+</div>

@@ -1,0 +1,134 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../data/site';
+
+const sectors = ['Civil works & construction', 'Roads construction', 'Agriculture', 'Oil & gas', 'Other'];
+---
+
+<Base
+  title="Contact Us"
+  description={`Contact PETIC GLOBAL in Doha, Qatar. Call ${site.phone} or email ${site.email}.`}
+>
+  <PageHero
+    crumb="Contact us"
+    title="Get in touch."
+    lead="We’d love to hear from you. For general enquiries you can reach the PETIC GLOBAL support team by phone, email or the form below."
+    image="fleet-tipper-trucks.jpg"
+    alt="Company truck fleet"
+    chip={{ title: 'Doha, Qatar', sub: 'Salwa Road, Zone 55' }}
+    tags={['Doha', 'Phone', 'Email', 'Enquiry form']}
+  />
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div>
+        <span class="eyebrow reveal">Contact details</span>
+        <h2 class="reveal">Send a message.</h2>
+        <p class="lead reveal" data-delay="1">
+          Our team in Doha responds to project enquiries, supply requests and partnership proposals.
+        </p>
+        <div class="contact-list">
+          <div class="contact-item reveal">
+            <i>
+              <Icon name="pin" />
+            </i>
+            <div>
+              <h3>Headquarters</h3>
+              <p>{site.address}</p>
+            </div>
+          </div>
+          <div class="contact-item reveal" data-delay="2">
+            <i>
+              <Icon name="phone" />
+            </i>
+            <div>
+              <h3>Phone</h3>
+              <a href={`tel:${site.phoneRaw}`}>{site.phone}</a>
+            </div>
+          </div>
+          <div class="contact-item reveal" data-delay="3">
+            <i>
+              <Icon name="mail" />
+            </i>
+            <div>
+              <h3>Email</h3>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <a href={`mailto:${site.salesEmail}`}>{site.salesEmail}</a>
+              <a href={`mailto:${site.ceoEmail}`}>{site.ceoEmail}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="form reveal" data-contact novalidate>
+        <h3 class="form__title">Tell us about your project</h3>
+        <div class="form__row">
+          <div class="field">
+            <label for="f-name">Full name</label>
+            <input id="f-name" name="name" type="text" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" required placeholder="you@company.com" />
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" placeholder="+974 ..." />
+          </div>
+          <div class="field">
+            <label for="f-sector">Sector</label>
+            <select id="f-sector" name="sector">
+              <option value="">Select a sector</option>
+              {sectors.map((s) => (
+                <option>{s}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-subject">Subject</label>
+          <input id="f-subject" name="subject" type="text" placeholder="How can we help?" />
+        </div>
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea
+            id="f-message"
+            name="message"
+            required
+            placeholder="Describe your project or enquiry"
+          ></textarea>
+        </div>
+        <button class="btn btn--gold" type="submit">
+          Send message
+          <Icon name="arrow" />
+        </button>
+        <p class="form__note">
+          We will reply to the email address you provide. Your details are never shared.
+        </p>
+        <div class="form__status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section section--soft section--tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Find us</span>
+        <h2>Salwa Road, Doha.</h2>
+      </div>
+      <div class="map reveal">
+        <iframe
+          title="Map of PETIC GLOBAL headquarters on Salwa Road, Doha"
+          src="https://www.google.com/maps?q=Salwa+Road,+Zone+55,+Doha,+Qatar&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</Base>

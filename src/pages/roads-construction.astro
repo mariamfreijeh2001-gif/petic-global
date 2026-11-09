@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PageHero from '../components/PageHero.astro';
+import SideNav from '../components/SideNav.astro';
+import Gallery from '../components/Gallery.astro';
+import ServiceList from '../components/ServiceList.astro';
+import Cta from '../components/Cta.astro';
+
+const services = [
+  'Equipment services',
+  'Civil construction &amp; general contracting',
+  'Electrical, air-conditioning installation and plumbing',
+  'Architectural finishing works',
+  'Renovation &amp; refurbishment of residential complexes, commercial buildings and industrial facilities',
+  'Water supply, sewage, electrical, telecommunications &amp; CATV infrastructure and networks',
+];
+---
+
+<Base
+  title="Roads Construction"
+  description="PETIC GLOBAL roads construction: asphalt roads and highways, earthwork, drainage, paving, bridges and aggregate production."
+>
+  <PageHero
+    crumb="Roads construction"
+    title="Roads construction."
+    lead="A reputation built on the construction quality of asphalt roads and highways, from large highways to small commercial site developments."
+    image="roads-paving.jpg"
+    alt="Asphalt paving crew laying a new road"
+    chip={{ title: 'Multi-million dollar', sub: 'Public and private sector projects' }}
+    tags={['Highways', 'Earthwork', 'Drainage', 'Asphalt paving', 'Bridges']}
+  />
+
+  <section class="section">
+    <div class="container detail">
+      <div class="prose">
+        <span class="eyebrow reveal">Overview</span>
+        <h2 class="reveal">All phases of road construction.</h2>
+        <p class="lead reveal" data-delay="1">
+          East Trading &amp; Manufacturing Company has worked hard to maintain its reputation in the
+          construction quality of asphalt roads and highways. It has successfully completed a range of
+          large-scale road projects, from large highways to small commercial site developments, approaching
+          every project with dedicated efficiency, technology and a special focus on safety.
+        </p>
+        <p class="reveal">
+          The company performs all phases of road construction, including earthwork, utilities, drainage,
+          concrete and asphalt paving, bridge construction, as well as aggregate production.
+        </p>
+        <p class="reveal">
+          What makes the company special is not just its versatility: the company has undertaken many public
+          and private sector projects worth multi-million dollars, enabling the group to operate with honesty,
+          integrity and higher standards.
+        </p>
+
+        <Gallery
+          items={[
+            { file: 'roads-rollers.jpg', alt: 'Road rollers compacting asphalt' },
+            { file: 'roads-asphalt-fresh.jpg', alt: 'Freshly laid asphalt road' },
+            { file: 'roads-tipper.jpg', alt: 'Tipper truck feeding the asphalt paver' },
+          ]}
+        />
+
+        <h3 class="reveal">Featured services overview</h3>
+        <div class="reveal mt-sm">
+          <ServiceList items={services} />
+        </div>
+
+        <h3 class="reveal">Phases we deliver</h3>
+        <ul class="reveal">
+          <li>Earthwork and aggregate production</li>
+          <li>Utilities and drainage</li>
+          <li>Concrete and asphalt paving</li>
+          <li>Bridge construction</li>
+        </ul>
+        <a class="btn btn--navy reveal mt-sm" href="/contact/">
+          Discuss a road project
+          <Icon name="arrow" />
+        </a>
+      </div>
+      <SideNav />
+    </div>
+  </section>
+
+  <Cta
+    title="Planning a highway or site development?"
+    text="From earthworks to final asphalt, our teams deliver roads with efficiency, technology and safety."
+  />
+</Base>

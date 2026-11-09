@@ -1,0 +1,54 @@
+---
+/** Inner-page header: breadcrumb, title, lead, tags or quote, and a framed photo with an optional chip. */
+import { Image } from 'astro:assets';
+import { img } from '../lib/images';
+import { site } from '../data/site';
+
+interface Props {
+  crumb: string;
+  title: string;
+  lead: string;
+  image: string;
+  alt: string;
+  chip?: { title: string; sub: string };
+  tags?: string[];
+}
+
+const { crumb, title, lead, image, alt, chip, tags } = Astro.props;
+const photo = img(image);
+---
+
+<section class="page-hero page-hero--split">
+  <Image src={photo} alt="" aria-hidden="true" widths={[800, 1600]} sizes="100vw" loading="eager" />
+  <div class="container">
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span set:html={crumb} />
+      </nav>
+      <h1 class="reveal" set:html={title} />
+      <p class="lead reveal" data-delay="1" set:html={lead} />
+      {tags ? (
+        <div class="page-hero__tags reveal" data-delay="2">
+          {tags.map((t) => (
+            <span>{t}</span>
+          ))}
+        </div>
+      ) : (
+        <p class="page-hero__quote reveal" data-delay="2">
+          “{site.quote}”
+        </p>
+      )}
+    </div>
+    <div class="page-hero__img reveal" data-delay="2">
+      <Image
+        src={photo}
+        alt={alt}
+        widths={[600, 900, 1200]}
+        sizes="(min-width: 960px) 45vw, 100vw"
+        loading="eager"
+      />
+      {chip && <div class="page-hero__chip" set:html={`${chip.title}<small>${chip.sub}</small>`} />}
+    </div>
+  </div>
+</section>

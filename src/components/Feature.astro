@@ -1,0 +1,23 @@
+---
+/** Icon + heading + text box used for service and capability grids. */
+import Icon from './Icon.astro';
+import type { IconName } from './Icon.astro';
+
+interface Props {
+  icon: IconName;
+  title: string;
+  delay?: number;
+}
+
+const { icon, title, delay } = Astro.props;
+---
+
+<div class="feature reveal" data-delay={delay}>
+  <i>
+    <Icon name={icon} />
+  </i>
+  <h3 set:html={title} />
+  <p>
+    <slot />
+  </p>
+</div>

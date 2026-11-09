@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PageHero from '../components/PageHero.astro';
+import SideNav from '../components/SideNav.astro';
+import Gallery from '../components/Gallery.astro';
+import Feature from '../components/Feature.astro';
+import Cta from '../components/Cta.astro';
+---
+
+<Base
+  title="Agriculture"
+  description="AgriPro by PETIC GLOBAL: land development, irrigation systems, technology integration and heavy machinery for sustainable agriculture."
+>
+  <PageHero
+    crumb="Agriculture"
+    title="Agriculture: AgriPro."
+    lead="Transforming arable lands into highly productive and sustainable agricultural ventures through land development, irrigation systems, technology and modern heavy machinery."
+    image="agri-tractors.jpg"
+    alt="Fleet of tractors lined up in a field"
+    chip={{ title: 'Thousands of acres', sub: 'Transformed into productive farmland' }}
+    tags={['Land development', 'Irrigation', 'Technology', 'Heavy machinery']}
+  />
+
+  <section class="section">
+    <div class="container detail">
+      <div class="prose">
+        <span class="eyebrow reveal">Company overview</span>
+        <h2 class="reveal">A leading agriculture company.</h2>
+        <p class="lead reveal" data-delay="1">
+          AgriPro is a leading agriculture company dedicated to transforming arable lands into highly
+          productive and sustainable agricultural ventures. With a strong commitment to innovation, technology
+          and environmental responsibility, we provide comprehensive solutions for land development,
+          irrigation systems and fertilizer management.
+        </p>
+        <p class="reveal" data-delay="1">
+          Our state-of-the-art heavy machinery and expert agronomists ensure that every project we undertake
+          thrives, contributing to global food security and agricultural sustainability.
+        </p>
+
+        <Gallery
+          items={[
+            { file: 'agri-harvest-1.jpg', alt: 'Combine harvester unloading grain' },
+            { file: 'agri-combine.jpg', alt: 'Combine harvester in a wheat field' },
+            { file: 'agri-tractor-field.jpg', alt: 'Tractor tilling a field' },
+          ]}
+        />
+
+        <h3 class="reveal">Mission statement</h3>
+        <p class="reveal">
+          At AgriPro Innovations, our mission is to revolutionize agriculture by leveraging cutting-edge
+          technology and sustainable practices to develop fertile lands, optimize water usage and maximize
+          crop yields. We are dedicated to enhancing the agricultural sector’s productivity and
+          sustainability.
+        </p>
+
+        <h3 class="reveal">Key services</h3>
+        <div class="grid grid--2 grid--tight mt-sm reveal">
+          <Feature icon="layers" title="Land development">
+            Our land development experts assess and prepare agricultural lands, ensuring optimal soil
+            conditions and topography for crop cultivation. We employ advanced land levelling and earthmoving
+            machinery to create fertile and productive fields.
+          </Feature>
+          <Feature icon="target" title="Irrigation systems">
+            We design, install and maintain advanced irrigation systems tailored to each project. Our
+            solutions optimize water usage through precise scheduling and automation, ensuring crops receive
+            the right amount of moisture at the right time.
+          </Feature>
+          <Feature icon="eye" title="Technology integration">
+            We harness agricultural technology to monitor and manage soil health, crop growth and machinery
+            operations. Our integrated approach helps farmers make data-driven decisions for higher yields and
+            resource efficiency.
+          </Feature>
+          <Feature icon="cog" title="Heavy machinery">
+            Our modern fleet includes tractors, ploughs, seeders and harvesters equipped with the latest
+            technology, facilitating efficient farming operations and saving time and resources for our
+            clients.
+          </Feature>
+        </div>
+
+        <Gallery
+          items={[
+            { file: 'agri-irrigation-1.jpg', alt: 'Centre-pivot irrigation system' },
+            { file: 'agri-irrigation-2.jpg', alt: 'Irrigation sprinklers over crops' },
+            { file: 'agri-tech.jpg', alt: 'Farmer using a mobile app in the field' },
+          ]}
+        />
+
+        <h3 class="reveal">Projects and achievements</h3>
+        <p class="reveal">
+          AgriPro Innovations has successfully transformed thousands of acres of land into highly productive
+          and sustainable agricultural ventures. Our projects have not only increased crop yields but have
+          also contributed to the economic development of rural communities.
+        </p>
+        <p class="reveal">
+          AgriPro is your trusted partner in agriculture, offering comprehensive solutions for land
+          development, irrigation systems, fertilizer management and technology integration. We are committed
+          to driving agricultural innovation and sustainability for a prosperous future.
+        </p>
+
+        <Gallery
+          items={[
+            { file: 'agri-planter.jpg', alt: 'Tractor with a precision planter' },
+            { file: 'agri-soil.jpg', alt: 'Seedling with soil nutrient symbols' },
+            { file: 'agri-handshake.jpg', alt: 'Handshake in front of farm machinery' },
+          ]}
+        />
+        <a class="btn btn--navy reveal" href="/contact/">
+          Contact us
+          <Icon name="arrow" />
+        </a>
+      </div>
+      <SideNav />
+    </div>
+  </section>
+
+  <Cta
+    title="Ready to develop your land?"
+    text="Talk to our agronomists about land development, irrigation and machinery for your project."
+  />
+</Base>

@@ -1,0 +1,461 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import ActivityCard from '../components/ActivityCard.astro';
+import Feature from '../components/Feature.astro';
+import Partners from '../components/Partners.astro';
+import Cta from '../components/Cta.astro';
+import { img } from '../lib/images';
+import { generalServices, site } from '../data/site';
+
+const stats = [
+  { icon: 'trophy', value: 77, suffix: '+', label: 'Projects completed worldwide' },
+  { icon: 'globe', value: 6, suffix: '', label: 'Countries of operation' },
+  { icon: 'layers', value: 4, suffix: '', label: 'Business sectors' },
+  { icon: 'pin', value: 3, suffix: '', label: 'Operating hubs: Al Khobar, Jubail, Qatar' },
+] as const;
+
+const presence = [
+  { country: 'Qatar', place: 'Doha', text: 'Group headquarters on Salwa Road.' },
+  {
+    country: 'Saudi Arabia',
+    place: 'Al Khobar &amp; Jubail',
+    text: 'Operating hubs and a substantial fleet of mobile plant.',
+  },
+  {
+    country: 'Tanzania',
+    place: 'Dar es Salaam',
+    text: 'East Trading &amp; Manufacturing Company: roads, civil works, construction.',
+  },
+  { country: 'Rwanda', place: 'Manufacturing', text: 'Household and pharmaceutical products.' },
+  { country: 'Uganda', place: 'Manufacturing', text: 'Gas cylinder production.' },
+  {
+    country: 'Yemen',
+    place: 'Oilfield supply',
+    text: 'Offices, workshops, warehousing and covered storage.',
+  },
+];
+---
+
+<Base
+  title="Construction, Agriculture, Oil & Gas"
+  description="PETIC GLOBAL delivers construction, roads, civil works, agriculture and oil & gas services across the Gulf States and East Africa. Chase the vision, not the money."
+>
+  <section class="hero">
+    <div class="hero__media">
+      <Image
+        src={img('hero-oil-rig.jpg')}
+        alt="Oil and gas drilling rig with pipelines at sunset"
+        widths={[800, 1400, 2000]}
+        sizes="100vw"
+        loading="eager"
+      />
+    </div>
+    <div class="hero__grid-lines" aria-hidden="true"></div>
+    <div class="container hero__grid">
+      <div>
+        <span class="hero__tag reveal">
+          <b>Since 2002</b> Gulf States &middot; East Africa
+        </span>
+        <h1 class="reveal" data-delay="1">
+          Building <em>your dreams</em> across the Gulf and Africa.
+        </h1>
+        <p class="lead reveal" data-delay="2">
+          Only if you plan with a good degree of foresight can serious mistakes be avoided. Foresight is a
+          given at PETIC GLOBAL: construction, infrastructure, agriculture and oil &amp; gas services
+          delivered with one simple promise, <strong>can do</strong>.
+        </p>
+        <div class="hero__actions reveal" data-delay="3">
+          <a class="btn btn--gold" href="/our-activities/">
+            Explore our activities
+            <Icon name="arrow" />
+          </a>
+          <a class="btn btn--ghost-light" href="/about/">
+            About the group
+          </a>
+        </div>
+        <p class="hero__quote reveal" data-delay="4">
+          “{site.quote}”
+        </p>
+      </div>
+      <div class="hero__panel reveal" data-delay="2">
+        <div class="hero__float">
+          <b>77+</b>
+          <span>projects delivered worldwide</span>
+        </div>
+        <div class="hero__card">
+          <h3>What we do</h3>
+          <div class="hero__list">
+            <a href="/civil-works-and-construction/">
+              <span>
+                <i>
+                  <Icon name="building" />
+                </i>
+                Civil Works &amp; Construction
+              </span>
+              <Icon name="arrow" />
+            </a>
+            <a href="/roads-construction/">
+              <span>
+                <i>
+                  <Icon name="road" />
+                </i>
+                Roads Construction
+              </span>
+              <Icon name="arrow" />
+            </a>
+            <a href="/agriculture/">
+              <span>
+                <i>
+                  <Icon name="leaf" />
+                </i>
+                Agriculture
+              </span>
+              <Icon name="arrow" />
+            </a>
+            <a href="/oil-and-gas/">
+              <span>
+                <i>
+                  <Icon name="flame" />
+                </i>
+                Oil &amp; Gas
+              </span>
+              <Icon name="arrow" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <i></i>Scroll
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Key figures">
+    <div class="container">
+      {stats.map((s, i) => (
+        <div class="stat reveal" data-delay={i || undefined}>
+          <i>
+            <Icon name={s.icon} />
+          </i>
+          <div>
+            <b>
+              <span data-count={s.value} data-suffix={s.suffix}>
+                {s.value}
+                {s.suffix}
+              </span>
+            </b>
+            <span>{s.label}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container split">
+      <div class="split__media reveal">
+        <Image
+          src={img('oil-gas-plant-1.jpg')}
+          alt="Gas processing facility delivered by the group"
+          widths={[600, 900, 1150]}
+          sizes="(min-width: 960px) 50vw, 100vw"
+        />
+        <div class="split__badge">
+          <b>Can do!</b>
+          <span>The PETIC GLOBAL philosophy, fulfilled over and over.</span>
+        </div>
+      </div>
+      <div class="reveal" data-delay="1">
+        <span class="eyebrow">Our specialties</span>
+        <h2>Reliability, from feasibility to hand-over.</h2>
+        <p class="lead">
+          East Trading &amp; its main group PETIC GLOBAL International’s project and construction management
+          services include early involvement during the feasibility and design development stages, securing
+          value engineering alternatives and full scrutiny of constructability issues.
+        </p>
+        <p>
+          Planning and coordination of construction activities and designs are delivered in time to secure
+          uninterrupted construction activities. We continually strive to improve our performance and to
+          complete projects within the scheduled time, while maintaining standards of quality and safety
+          during execution.
+        </p>
+        <ul class="checks">
+          <li>
+            <Icon name="check" />
+            <span>Early involvement during feasibility and design development</span>
+          </li>
+          <li>
+            <Icon name="check" />
+            <span>Value engineering alternatives and constructability review</span>
+          </li>
+          <li>
+            <Icon name="check" />
+            <span>Quality management and excellent safety practices applied daily</span>
+          </li>
+          <li>
+            <Icon name="check" />
+            <span>Customer-oriented synergy arising from our partnerships</span>
+          </li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn--navy" href="/about/">
+            More about us
+            <Icon name="arrow" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="activities">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="reveal">
+          <span class="eyebrow">What we do</span>
+          <h2>Our activities.</h2>
+        </div>
+        <p class="lead reveal" data-delay="1">
+          Four sectors, one standard: quality, safety and delivery on time across the Gulf States and East
+          Africa.
+        </p>
+      </div>
+      <div class="grid grid--4">
+        <ActivityCard
+          href="/civil-works-and-construction/"
+          number="01"
+          icon="building"
+          image="civil-bridge-beam.jpg"
+          alt="Bridge beam being lifted into place by crane"
+          title="Civil Works &amp; Construction"
+          text="East Trading &amp; Manufacturing Company holds a portfolio of strategic investment in construction equipment and a substantial fleet of mobile plant."
+        />
+        <ActivityCard
+          href="/roads-construction/"
+          number="02"
+          icon="road"
+          image="roads-paving.jpg"
+          alt="Asphalt paving crew laying a new road"
+          title="Roads Construction"
+          text="A hard-earned reputation for the construction quality of asphalt roads and highways, from large highways to small commercial site developments."
+          delay={1}
+        />
+        <ActivityCard
+          href="/agriculture/"
+          number="03"
+          icon="leaf"
+          image="agri-harvest-1.jpg"
+          alt="Combine harvester working a wheat field"
+          title="Agriculture"
+          text="AgriPro is a leading agriculture company dedicated to transforming arable lands into highly productive and sustainable agricultural ventures."
+          delay={2}
+        />
+        <ActivityCard
+          href="/oil-and-gas/"
+          number="04"
+          icon="flame"
+          image="oil-gas-plant-2.jpg"
+          alt="Oil and gas processing plant"
+          title="Oil &amp; Gas"
+          text="Our clients include major oil and gas companies, projects and contractors in Yemen, with associations with renowned manufacturers worldwide."
+          delay={3}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split split--rev">
+      <div class="split__media reveal">
+        <Image
+          src={img('civil-earthworks.jpg')}
+          alt="Earthworks on a desert road project"
+          widths={[600, 900, 1150]}
+          sizes="(min-width: 960px) 50vw, 100vw"
+        />
+      </div>
+      <div class="reveal" data-delay="1">
+        <span class="eyebrow">Why choose us</span>
+        <h2>The benefit of working with our company.</h2>
+        <p class="lead">
+          PETIC GLOBAL holds a portfolio of strategic investment in construction equipment, property and a
+          substantial fleet of mobile plant in Saudi Arabia. This complements the company’s multi-domestic
+          growth strategy, which centres on its operating hubs in Al Khobar, Jubail and Qatar.
+        </p>
+        <p>
+          We embrace holistic development and support for employees, with the aim of being a first-choice
+          employer.
+        </p>
+        <div class="grid grid--2 grid--tight mt-md">
+          {generalServices.map((s) => (
+            <div class="service">
+              <i>
+                <Icon name="check" />
+              </i>
+              <span>{s}</span>
+            </div>
+          ))}
+        </div>
+        <div class="actions">
+          <a class="btn btn--ghost" href="/our-activities/">
+            See more
+            <Icon name="arrow" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">Our services</span>
+        <h2>First-class construction and infrastructure.</h2>
+        <p class="lead">
+          From architecture to industrial engineering, we take projects from concept through construction,
+          commissioning and long-term operation and maintenance.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        <Feature icon="building" title="Construction">
+          Infrastructure solutions and first-class construction, delivered by skilled teams and a modern fleet
+          of equipment.
+        </Feature>
+        <Feature icon="layers" title="Architecture" delay={1}>
+          Industrial engineering and construction, from innovative technical concepts to front-end engineering
+          designs.
+        </Feature>
+        <Feature icon="cog" title="Industrial engineering" delay={2}>
+          Oil rigs or refineries, power stations or steel mills, piping, mechanical and construction, whatever
+          the project.
+        </Feature>
+        <Feature icon="eye" title="Interior design">
+          Architectural finishing works, renovation and refurbishment of residential complexes, commercial
+          buildings and industrial facilities.
+        </Feature>
+        <Feature icon="road" title="Infrastructure" delay={1}>
+          Roads, bridges, drainage, water supply, sewage, electrical, telecommunications and CATV networks.
+        </Feature>
+        <Feature icon="globe" title="Skyscrapers &amp; city landmarks" delay={2}>
+          Design-build projects and construction management for landmark developments in the Gulf and East
+          Africa.
+        </Feature>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="reveal">
+          <span class="eyebrow">Reliability</span>
+          <h2>Systematically achieving the optimum.</h2>
+        </div>
+        <p class="lead reveal" data-delay="1">
+          It is not without reason that PETIC GLOBAL is one of the companies able to document their competence
+          in black and white for the benefit of our customers.
+        </p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <h3>Our strategy</h3>
+          <p>
+            Our strategies, structure and systems are focused on creating constant customer satisfaction by
+            delivering services, solutions and products that are qualitative and cost effective.
+          </p>
+        </div>
+        <div class="pillar reveal" data-delay="1">
+          <h3>Our promise</h3>
+          <p>
+            The PETIC GLOBAL philosophy can be put into one simple formula: can do! That promise remains the
+            highest factor guiding our actions in future.
+          </p>
+        </div>
+        <div class="pillar reveal" data-delay="2">
+          <h3>Our standard</h3>
+          <p>
+            A high quality standard that makes the group a successful enterprise, brought to life daily
+            through quality management and excellent safety practices.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy section--tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How we work</span>
+        <h2>From plan to hand-over.</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <h3>Offering construction plans</h3>
+          <p>
+            Early involvement during feasibility and design development, securing value engineering
+            alternatives.
+          </p>
+        </div>
+        <div class="step reveal" data-delay="1">
+          <h3>Project assignment</h3>
+          <p>
+            Planning and coordination of construction activities and designs, delivered in time to keep work
+            uninterrupted.
+          </p>
+        </div>
+        <div class="step reveal" data-delay="2">
+          <h3>Building the project</h3>
+          <p>Execution within the scheduled time while maintaining our standards of quality and safety.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-band">
+    <Image
+      src={img('oil-rig-dusk.jpg')}
+      alt=""
+      aria-hidden="true"
+      widths={[700]}
+      sizes="100vw"
+      loading="lazy"
+    />
+    <div class="container reveal">
+      <span class="mark" aria-hidden="true">
+        “
+      </span>
+      <blockquote>
+        Chase the vision, not the money. <em>The money will end up following you.</em>
+      </blockquote>
+      <cite>The PETIC GLOBAL philosophy</cite>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="reveal">
+          <span class="eyebrow">Where we operate</span>
+          <h2>Present across the Gulf and East Africa.</h2>
+        </div>
+        <p class="lead reveal" data-delay="1">
+          Operating hubs in the Gulf States and East Africa, with manufacturing and supply operations that
+          keep growing.
+        </p>
+      </div>
+      <div class="presence">
+        {presence.map((p, i) => (
+          <div class="place reveal" data-delay={Math.min(i, 4) || undefined}>
+            <b>{p.country.toUpperCase()}</b>
+            <h3 set:html={p.place} />
+            <p set:html={p.text} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Partners />
+  <Cta />
+</Base>

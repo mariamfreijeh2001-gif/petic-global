@@ -1,0 +1,113 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PageHero from '../components/PageHero.astro';
+import SideNav from '../components/SideNav.astro';
+import Gallery from '../components/Gallery.astro';
+import ServiceList from '../components/ServiceList.astro';
+import Feature from '../components/Feature.astro';
+import Cta from '../components/Cta.astro';
+import { generalServices, site } from '../data/site';
+---
+
+<Base
+  title="Oil &amp; Gas"
+  description="PETIC GLOBAL oil &amp; gas: asset integrity inspection, oilfield material supply and static equipment rehabilitation."
+>
+  <PageHero
+    crumb="Oil &amp; gas"
+    title="Oil &amp; gas."
+    lead="Asset integrity, material supply and static equipment rehabilitation for the oil &amp; gas industry, serving major companies, projects and contractors."
+    image="oil-gas-plant-2.jpg"
+    alt="Oil and gas processing plant"
+    chip={{ title: 'API &middot; CSWIP &middot; NACE', sub: 'Certified inspection teams' }}
+    tags={['Asset integrity', 'Material supply', 'Equipment rehabilitation']}
+  />
+
+  <section class="section">
+    <div class="container detail">
+      <div class="prose">
+        <span class="eyebrow reveal">Asset integrity</span>
+        <h2 class="reveal">Safe operation of ageing assets.</h2>
+        <p class="lead reveal" data-delay="1">
+          One of the major challenges facing the oil and gas industry today is to ensure the safe operation of
+          their ageing assets. Asset integrity entails making sure an asset can perform its required function
+          effectively and safely.
+        </p>
+        <p class="reveal">
+          Our asset integrity partner, Mega, has a well trained and experienced team certified to API (510,
+          570, 580, 653), CSWIP welding &amp; painting, NACE and ASNT (UT, RT, MT, PT, VT), supported by
+          specialized tools and equipment. Mega is accredited by the Egyptian Accreditation Council (EGAC)
+          under ISO/IEC 17020 as a Type C inspection body in the field of in-service inspection.
+        </p>
+
+        <Gallery
+          items={[
+            { file: 'oil-maintenance-crew.jpg', alt: 'Maintenance crew servicing static equipment' },
+            { file: 'oil-gas-plant-1.jpg', alt: 'Gas processing facility' },
+            { file: 'oil-offshore-rig.jpg', alt: 'Offshore drilling rig' },
+          ]}
+        />
+
+        <h3 class="reveal">Material supply services</h3>
+        <p class="reveal">
+          PETIC GLOBAL is a well-resourced and full-service oilfield supply company serving the oil &amp; gas
+          industry in the country. Our clients include major oil and gas companies, projects and contractors
+          in Yemen. Our company has associations with renowned manufacturers, major mills and suppliers across
+          the world.
+        </p>
+        <p class="reveal">
+          PETIC GLOBAL is an oilfield supplier you can trust for any urgent and important oil &amp; gas
+          project supply. Operations are conducted from purpose-built facilities in Yemen, comprising offices,
+          workshops, warehousing and covered storage areas, from where a wide range of products and services
+          covering a large spectrum of the energy industry are supplied. Products range from materials
+          required for the drilling of wells to equipment required for large downstream projects.
+        </p>
+        <p class="reveal">
+          PETIC GLOBAL Stocks and Supplies are committed to client satisfaction in every aspect of our
+          business, guided by our core values of integrity and teamwork.
+        </p>
+
+        <Gallery
+          items={[
+            { file: 'oil-pipes-yard.jpg', alt: 'Steel pipes in the supply yard' },
+            { file: 'oil-rig-move.jpg', alt: 'Rig move with heavy transport' },
+            { file: 'oil-gas-plant-3.jpg', alt: 'Oil and gas facility at dusk' },
+          ]}
+        />
+
+        <div class="grid grid--2 grid--tight mt-sm reveal">
+          <Feature icon="users" title="Team capabilities &amp; qualification">
+            Well trained and certified maintenance teams who have gained various maintenance technologies by
+            handling a diversity of process types (oil, gas, LNG and more) with their related operation
+            techniques and safety hazards, inside and outside the oil &amp; gas sector, for railways, the
+            industrial sector and more.
+          </Feature>
+          <Feature icon="cog" title="Static equipment rehabilitation">
+            A significant market share as a unique service provider for boiler and heater revamping, separator
+            fabrication and heat exchangers in oil &amp; gas fields, including water and fire-tube boiler
+            revamping, supported by a specialized workshop complying with the ASME code.
+          </Feature>
+        </div>
+
+        <h3 class="reveal">Related services</h3>
+        <div class="reveal mt-sm">
+          <ServiceList items={[...generalServices]} />
+        </div>
+        <p class="reveal mt-md">
+          <strong>Call for an appointment</strong>
+        </p>
+        <a class="btn btn--navy reveal" href={`tel:${site.phoneRaw}`}>
+          <Icon name="phone" />
+          {site.phone}
+        </a>
+      </div>
+      <SideNav />
+    </div>
+  </section>
+
+  <Cta
+    title="Need oilfield supply or inspection?"
+    text="From drilling materials to downstream equipment and in-service inspection, we are ready to support your project."
+  />
+</Base>

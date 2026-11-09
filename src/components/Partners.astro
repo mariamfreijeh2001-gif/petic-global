@@ -1,0 +1,31 @@
+---
+/** Auto-scrolling strip of partner logos (duplicated once for a seamless loop). */
+import { Image } from 'astro:assets';
+import { img } from '../lib/images';
+import { partners } from '../data/site';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'Trusted by industry partners.' } = Astro.props;
+const logos = [...partners, ...partners];
+---
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <span class="eyebrow">Our partners</span>
+      <h2>{title}</h2>
+    </div>
+    <div class="marquee reveal" role="group" aria-label="Partner logos">
+      <div class="marquee__track">
+        {logos.map((p) => (
+          <div class="partner">
+            <Image src={img(p.file)} alt={p.name} width={420} loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

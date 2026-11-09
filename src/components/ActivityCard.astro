@@ -1,0 +1,45 @@
+---
+/** Linked activity card: numbered photo, icon badge, title, blurb and "Learn more". */
+import Icon from './Icon.astro';
+import type { IconName } from './Icon.astro';
+import { Image } from 'astro:assets';
+import { img } from '../lib/images';
+
+interface Props {
+  href: string;
+  title: string;
+  text: string;
+  image: string;
+  alt: string;
+  icon: IconName;
+  number?: string;
+  wide?: boolean;
+  delay?: number;
+}
+
+const { href, title, text, image, alt, icon, number, wide = false, delay } = Astro.props;
+---
+
+<a class="card reveal" href={href} data-delay={delay}>
+  <div class:list={['card__media', { 'card__media--wide': wide }]}>
+    {number && <span class="card__num">{number}</span>}
+    <Image
+      src={img(image)}
+      alt={alt}
+      widths={[400, 700, 1000]}
+      sizes="(min-width: 980px) 25vw, (min-width: 600px) 50vw, 100vw"
+      loading="lazy"
+    />
+  </div>
+  <div class="card__body">
+    <i class="card__icon">
+      <Icon name={icon} />
+    </i>
+    <h3 set:html={title} />
+    <p set:html={text} />
+    <span class="link-arrow">
+      Learn more
+      <Icon name="arrow" />
+    </span>
+  </div>
+</a>

@@ -1,98 +1,81 @@
 # PETIC GLOBAL — company website
 
-Redesigned static website for [petic-global.com](https://petic-global.com). No build tools or
-server required: plain HTML, CSS and JavaScript that can be hosted anywhere (GitHub Pages,
-Netlify, cPanel, etc.).
+Corporate website for [petic-global.com](https://petic-global.com), built with
+[Astro](https://astro.build) and TypeScript. The build produces a fully static site (plain HTML,
+CSS, a small script and optimised images) that is deployed to GitHub Pages.
 
-## Pages
+## Getting started
 
-| File | Page |
-| --- | --- |
-| `index.html` | Home |
-| `about.html` | About us (history, mission, East Africa office, licences, partners) |
-| `our-activities.html` | Our activities overview |
-| `agriculture.html` | Agriculture (AgriPro) |
-| `roads-construction.html` | Roads construction |
-| `civil-works-and-construction.html` | Civil works & construction |
-| `oil-and-gas.html` | Oil & gas |
-| `contact.html` | Contact (form + map) |
+Requires Node.js 22 or newer.
 
-## Structure
-
-```
-assets/css/style.css   design system + all page styles
-assets/js/main.js      menu, sticky header, scroll animations, counters, contact form
-assets/img/            images (see "Replacing images" below)
-PETIC-Global-Company-Profile.pdf   company profile (replace this file to update the download)
-tools/build.py         generator that writes the HTML pages
-tools/icons.py         inline SVG icons used by the generator
-.github/workflows/     GitHub Pages deployment and a build/format/validate check
+```bash
+npm install
 ```
 
-## Replacing images
+```bash
+npm run dev
+```
 
-Drop a new file with the **same name** into `assets/img/` and it appears everywhere it is used.
-Recommended sizes are in landscape unless noted.
+Opens a live-reloading development server at http://localhost:4321.
 
-| File | Used for | Suggested size |
-| --- | --- | --- |
-| `logo.png` | Header and footer logo (transparent PNG) | 800 × 320 |
-| `hero-oil-rig.jpg` | Home hero background | 2400 × 1600 |
-| `oil-gas-plant-1/2/3.jpg` | Home specialties, About and Oil & Gas headers, galleries | 1800 × 1200 |
-| `oil-rig-dusk.jpg` | Home vision quote background | 2000 × 1200 |
-| `oil-rig-move.jpg`, `oil-offshore-rig.jpg`, `oil-maintenance-crew.jpg`, `oil-pipes-yard.jpg` | Our activities and Oil & Gas page | 1200 × 800 |
-| `roads-paving.jpg`, `roads-rollers.jpg`, `roads-asphalt-fresh.jpg`, `roads-tipper.jpg` | Roads cards, header and gallery | 1800 × 1200 |
-| `civil-bridge-beam.jpg`, `civil-tank-construction.jpg`, `civil-pipeline.jpg`, `civil-earthworks.jpg` | Civil works cards, header and gallery | 1800 × 1200 |
-| `fleet-mixer-truck.jpg`, `fleet-loader.jpg`, `fleet-tipper-trucks.jpg` | Equipment fleet gallery, Contact header | 1200 × 800 |
-| `agri-*.jpg` | Agriculture page galleries and cards | 1200 × 800 |
-| `license-*.jpg` | About page licences (portrait) | 800 × 1100 |
-| `partner-*.jpg` | Partner logos | any, ~400 × 120 |
+| Command                | What it does                                              |
+| ---------------------- | --------------------------------------------------------- |
+| `npm run dev`          | Start the development server                              |
+| `npm run build`        | Build the production site into `dist/`                    |
+| `npm run preview`      | Serve the built site locally                              |
+| `npm run check`        | Type-check all `.astro` and `.ts` files                   |
+| `npm run format`       | Format the source with Prettier                           |
+| `npm run format:check` | Verify formatting (used by CI)                            |
 
-Most project photos were taken from the company profile PDF, so they are limited to about
-1200 px wide. Replacing them with the original full-size photos will sharpen the site.
+## Project structure
 
-## Updating the company profile
-
-The "Download Profile" buttons link to `PETIC-Global-Company-Profile.pdf` in the project root.
-To publish a new profile, replace that file with the new PDF using the exact same name.
-GitHub rejects files larger than 100 MB, so keep the PDF below that.
+```
+public/                      files copied as-is: CNAME, robots.txt, favicon, company profile PDF
+src/
+  assets/img/                photos; imported by name and optimised at build time
+  components/                reusable UI (Header, Footer, PageHero, ActivityCard, Gallery, …)
+  data/site.ts               company details, navigation, partners, shared lists
+  layouts/Base.astro         <head> metadata, header, footer and scripts for every page
+  lib/images.ts              helper that resolves an image by file name
+  pages/                     one .astro file per page; the file name is the URL
+  scripts/main.ts            menu, sticky header, scroll animations, counters, contact form
+  styles/global.css          design tokens and all component styles
+.github/workflows/           CI check and GitHub Pages deployment
+```
 
 ## Editing content
 
-Either edit the HTML files directly, or edit the text in `tools/build.py` and run:
-
-```bash
-python3 tools/build.py
-```
-
-The script rewrites all eight pages with a consistent header, footer and navigation.
-Then format and validate before committing (the CI check does the same):
-
-```bash
-npx prettier@3.3.3 --write "*.html" "assets/css/style.css" "assets/js/main.js"
-```
-
-```bash
-npx html-validate@8.24.2 "*.html"
-```
-
-## Hosting on GitHub Pages
-
-The workflow in `.github/workflows/pages.yml` publishes the site on every push.
-Enable it once in the repository settings: **Settings → Pages → Build and deployment →
-Source: GitHub Actions**. The `CNAME` file sets the custom domain to petic-global.com. For it to resolve, the domain's
-DNS must point at GitHub Pages:
-
-| Type | Host | Value |
-| --- | --- | --- |
-| A | @ | 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 |
-| CNAME | www | mariamfreijeh2001-gif.github.io |
-
-Then in **Settings → Pages → Custom domain**, confirm `petic-global.com` and tick
-**Enforce HTTPS** once the certificate is issued.
+- **Company details** (phone, emails, address, social links, profile file name) live in
+  `src/data/site.ts` and flow into every page.
+- **Page text** lives in the matching file under `src/pages/`. Shared blocks such as the header,
+  footer and call-to-action band are components under `src/components/`.
+- **Photos** go in `src/assets/img/` and are referenced by file name, for example
+  `img('roads-paving.jpg')`. Astro converts them to WebP in several sizes at build time, so
+  drop in the largest version you have. Logos and the favicon live in `public/img/`.
+- **Company profile PDF** is `public/Petic-International-Business-Profile.pdf`. Replace the file
+  with the same name to update the download. Keep it under 100 MB (GitHub's limit); 10 MB or
+  less gives visitors a quick download. The current file was compressed from 32 MB to 8.5 MB
+  with Ghostscript at 170 dpi with no visible loss.
 
 ## Contact form
 
-The form opens the visitor's email client with the message pre-filled (no server needed).
+The form opens the visitor's email client with the message pre-filled, so it needs no server.
 To send messages through a form service instead, add `data-endpoint="https://..."` to the
-`<form>` in `contact.html` (for example a Formspree endpoint).
+`<form>` in `src/pages/contact.astro` (for example a Formspree endpoint).
+
+## Hosting on GitHub Pages
+
+Pushes to `main` run `.github/workflows/pages.yml`, which builds the site and publishes it.
+Enable it once in the repository settings: **Settings → Pages → Build and deployment →
+Source: GitHub Actions**.
+
+`public/CNAME` sets the custom domain to petic-global.com. For it to resolve, the domain's DNS
+must point at GitHub Pages:
+
+| Type  | Host | Value                                                                  |
+| ----- | ---- | ---------------------------------------------------------------------- |
+| A     | @    | 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153     |
+| CNAME | www  | mariamfreijeh2001-gif.github.io                                        |
+
+Then in **Settings → Pages → Custom domain**, confirm `petic-global.com` and tick
+**Enforce HTTPS** once the certificate is issued.

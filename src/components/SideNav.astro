@@ -1,0 +1,42 @@
+---
+/** Sticky sidebar for activity pages: activity links, contact card and profile download. */
+import Icon from './Icon.astro';
+import { activities, site } from '../data/site';
+
+const path = Astro.url.pathname;
+---
+
+<aside class="sidebar" aria-label="Related information">
+  <div class="side-card">
+    <h4>Our activities</h4>
+    <nav class="side-nav" aria-label="Activity pages">
+      {activities.map((a) => (
+        <a href={a.href} class:list={{ 'is-active': path.startsWith(a.href) }}>
+          {a.label}
+          <Icon name="arrow" />
+        </a>
+      ))}
+    </nav>
+  </div>
+  <div class="side-card side-card--navy">
+    <h4>Talk to our team</h4>
+    <p>
+      <strong>{site.phone}</strong>
+      <br />
+      {site.email}
+    </p>
+    <p class="text-sm">{site.address}</p>
+    <a class="btn btn--gold" href="/contact/">
+      Request a quote
+      <Icon name="arrow" />
+    </a>
+  </div>
+  <div class="side-card">
+    <h4>Company profile</h4>
+    <p class="muted text-sm">Download our full corporate profile with capabilities, projects and licences.</p>
+    <a class="link-arrow mt-xs" href={site.profile} target="_blank" rel="noopener">
+      Download PDF
+      <Icon name="download" />
+    </a>
+  </div>
+</aside>

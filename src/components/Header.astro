@@ -1,0 +1,138 @@
+---
+/** Top contact bar, sticky header with primary navigation, and the mobile menu. */
+import Icon from './Icon.astro';
+import { nav, site } from '../data/site';
+import { Image } from 'astro:assets';
+import { img } from '../lib/images';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const isActiveGroup = (item: (typeof nav)[number]) =>
+  isActive(item.href) || (item.children ?? []).some((c) => isActive(c.href));
+---
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar__contacts">
+      <a href={`tel:${site.phoneRaw}`}>
+        <Icon name="phone" />
+        {site.phone}
+      </a>
+      <a href={`mailto:${site.email}`}>
+        <Icon name="mail" />
+        {site.email}
+      </a>
+      <a href="/contact/">
+        <Icon name="pin" />
+        {site.city}
+      </a>
+    </div>
+    <div class="topbar__social">
+      <a href={site.social.facebook} aria-label="Facebook">
+        <Icon name="fb" />
+      </a>
+      <a href={site.social.instagram} aria-label="Instagram">
+        <Icon name="ig" />
+      </a>
+      <a href={site.social.x} aria-label="X (Twitter)">
+        <Icon name="tw" />
+      </a>
+      <a href={site.social.linkedin} aria-label="LinkedIn">
+        <Icon name="in" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container">
+    <a class="brand" href="/" aria-label={`${site.name} home`}>
+      <Image
+        src={img('logo.png')}
+        alt={site.name}
+        width={124}
+        height={50}
+        densities={[1, 2, 3]}
+        loading="eager"
+      />
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav">
+        {nav.map((item) =>
+          item.children ? (
+            <li class="has-sub">
+              <a href={item.href} class:list={{ 'is-active': isActiveGroup(item) }}>
+                {item.label}
+                <Icon name="chev" />
+              </a>
+              <ul class="sub">
+                {item.children.map((child) => (
+                  <li>
+                    <a href={child.href} class:list={{ 'is-active': isActive(child.href) }}>
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ) : (
+            <li>
+              <a href={item.href} class:list={{ 'is-active': isActive(item.href) }}>
+                {item.label}
+              </a>
+            </li>
+          ),
+        )}
+      </ul>
+    </nav>
+    <a class="btn btn--gold btn--sm header__cta" href={site.profile} target="_blank" rel="noopener">
+      <Icon name="download" />
+      Download Profile
+    </a>
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <span></span>
+    </button>
+  </div>
+  <div class="header__progress" aria-hidden="true"></div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+  <ul>
+    {nav.map((item) => (
+      <>
+        <li>
+          <a href={item.href} class:list={{ 'is-active': isActive(item.href) }}>
+            {item.label}
+          </a>
+        </li>
+        {item.children && (
+          <li>
+            <ul class="mobile-sub">
+              {item.children.map((child) => (
+                <li>
+                  <a href={child.href} class:list={{ 'is-active': isActive(child.href) }}>
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        )}
+      </>
+    ))}
+  </ul>
+  <a class="btn btn--gold" href={site.profile} target="_blank" rel="noopener">
+    <Icon name="download" />
+    Download Company Profile
+  </a>
+  <p class="mobile-nav__meta">
+    Call <a href={`tel:${site.phoneRaw}`}>{site.phone}</a> or email{' '}
+    <a href={`mailto:${site.email}`}>{site.email}</a>
+  </p>
+</nav>

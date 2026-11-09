@@ -1,5 +1,6 @@
 {
-  "printWidth": 120,
-  "htmlWhitespaceSensitivity": "css",
-  "singleQuote": true
+  "printWidth": 110,
+  "singleQuote": true,
+  "plugins": ["prettier-plugin-astro"],
+  "overrides": [{ "files": "*.astro", "options": { "parser": "astro" } }]
 }

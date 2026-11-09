@@ -1,0 +1,88 @@
+---
+/** Site footer: company blurb, link columns, contact details and copyright. */
+import Icon from './Icon.astro';
+import { activities, site } from '../data/site';
+import { Image } from 'astro:assets';
+import { img } from '../lib/images';
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a class="brand brand--on-dark" href="/">
+          <Image src={img('logo.png')} alt={site.name} width={110} height={45} densities={[1, 2, 3]} />
+        </a>
+        <h4 class="mt-md">About our company</h4>
+        <p>
+          The Petic group invested heavily in the Gulf States and Tanzania, building infrastructure and road
+          projects. In its next phase the group moved into manufacturing household and pharmaceutical products
+          in Rwanda, and gas cylinders in Uganda.
+        </p>
+        <div class="footer__social">
+          <a href={site.social.facebook} aria-label="Facebook">
+            <Icon name="fb" />
+          </a>
+          <a href={site.social.instagram} aria-label="Instagram">
+            <Icon name="ig" />
+          </a>
+          <a href={site.social.x} aria-label="X (Twitter)">
+            <Icon name="tw" />
+          </a>
+          <a href={site.social.linkedin} aria-label="LinkedIn">
+            <Icon name="in" />
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Useful links</h4>
+        <div class="footer__links">
+          <a href="/">Home</a>
+          <a href="/about/">About us</a>
+          <a href="/our-activities/">Our activities</a>
+          <a href="/contact/">Contact us</a>
+          <a href={site.profile} target="_blank" rel="noopener">
+            Company profile (PDF)
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Our activities</h4>
+        <div class="footer__links">
+          {activities.map((a) => (
+            <a href={a.href}>{a.label}</a>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h4>Contact us</h4>
+        <ul class="footer__contact">
+          <li>
+            <Icon name="pin" />
+            <span>{site.address}</span>
+          </li>
+          <li>
+            <Icon name="phone" />
+            <a href={`tel:${site.phoneRaw}`}>{site.phone}</a>
+          </li>
+          <li>
+            <Icon name="mail" />
+            <span>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <br />
+              <a href={`mailto:${site.salesEmail}`}>{site.salesEmail}</a>
+              <br />
+              <a href={`mailto:${site.ceoEmail}`}>{site.ceoEmail}</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>
+        &copy; <span data-year>{new Date().getFullYear()}</span> {site.name}. All rights reserved.
+      </span>
+      <span>Construction &middot; Infrastructure &middot; Agriculture &middot; Oil &amp; Gas</span>
+    </div>
+  </div>
+</footer>

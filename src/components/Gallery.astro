@@ -1,0 +1,23 @@
+---
+/** Three-up photo gallery. Each item is an image file name from src/assets/img plus alt text. */
+import { Image } from 'astro:assets';
+import { img } from '../lib/images';
+
+interface Props {
+  items: { file: string; alt: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="gallery gallery--3 gallery--spaced reveal">
+  {items.map((it) => (
+    <Image
+      src={img(it.file)}
+      alt={it.alt}
+      widths={[300, 500, 800]}
+      sizes="(min-width: 1000px) 25vw, 33vw"
+      loading="lazy"
+    />
+  ))}
+</div>

@@ -1,0 +1,256 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PageHero from '../components/PageHero.astro';
+import Feature from '../components/Feature.astro';
+import Partners from '../components/Partners.astro';
+import Cta from '../components/Cta.astro';
+import { img } from '../lib/images';
+import { site } from '../data/site';
+
+const licences = [
+  {
+    file: 'license-incorporation-tanzania.jpg',
+    alt: 'Certificate of incorporation, Tanzania',
+    caption: 'Certificate of Incorporation, Tanzania',
+  },
+  {
+    file: 'license-registration-1.jpg',
+    alt: 'Company registration, Rwanda Development Board',
+    caption: 'Company registration, Rwanda',
+  },
+  {
+    file: 'license-registration-2.jpg',
+    alt: 'Business activities registration, Rwanda Development Board',
+    caption: 'Business activities, Rwanda',
+  },
+  {
+    file: 'license-uma-certificate.jpg',
+    alt: 'Uganda Manufacturers Association membership certificate',
+    caption: 'Uganda Manufacturers Association member',
+  },
+];
+---
+
+<Base
+  title="About Us"
+  description="Learn about PETIC GLOBAL: our history across the Gulf States, Tanzania, Rwanda and Uganda, our mission, licences and partners."
+>
+  <PageHero
+    crumb="About us"
+    title="About PETIC GLOBAL."
+    lead="A group established across the Middle East and Africa, providing quality construction projects and engineering services in the sector of oil &amp; gas, infrastructure, manufacturing and agriculture."
+    image="oil-gas-plant-3.jpg"
+    alt="Oil and gas facility at dusk"
+    chip={{ title: '77+ projects', sub: 'Private and public sectors worldwide' }}
+    tags={['Construction', 'Infrastructure', 'Manufacturing', 'Agriculture', 'Oil & gas']}
+  />
+
+  <section class="section">
+    <div class="container split">
+      <div class="reveal">
+        <span class="eyebrow">Who we are</span>
+        <h2>Established worldwide, rooted in the Gulf and Africa.</h2>
+        <p class="lead">
+          Sheik Salah has been in worldwide business, establishing various companies in the Middle East and
+          Africa, providing quality construction projects and engineering services in the sector of oil &amp;
+          gas.
+        </p>
+        <p>
+          At the beginning, the Petic group invested heavily in the Gulf States and Tanzania by building
+          infrastructure and road projects. In its next phase the group moved into manufacturing household and
+          pharmaceutical products in Rwanda, and gas cylinders in Uganda.
+        </p>
+        <p>
+          The group is now planning to represent Chinese car manufacturers by creating an assembling workshop
+          in Africa.
+        </p>
+        <div class="actions">
+          <a class="btn btn--navy" href={site.profile} target="_blank" rel="noopener">
+            <Icon name="download" />
+            Company profile
+          </a>
+          <a class="btn btn--ghost" href="/contact/">
+            Contact us
+          </a>
+        </div>
+      </div>
+      <div class="split__media reveal" data-delay="1">
+        <Image
+          src={img('oil-pipes-yard.jpg')}
+          alt="Steel pipes in the supply yard"
+          class="split__img--tall"
+          widths={[400, 740]}
+          sizes="(min-width: 960px) 50vw, 100vw"
+        />
+        <div class="split__badge">
+          <b>77+</b>
+          <span>projects of various sizes completed for private and public sectors worldwide.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="grid grid--3">
+        <Feature icon="trophy" title="Projects">
+          The PETIC GLOBAL philosophy can be put into one simple formula: can do! That is a promise we have
+          been fulfilling over and over, and it will remain the highest factor guiding our actions in future.
+          We continually strive to improve our performance.
+        </Feature>
+        <Feature icon="target" title="Mission" delay={1}>
+          Oil rigs or refineries, power stations or steel mills, piping, mechanical, construction: whatever
+          the project, we can develop our involvement in those areas which allow our clients to take a back
+          seat. Why? Because they know that everything which is or could be important is in good hands.
+        </Feature>
+        <Feature icon="eye" title="Think" delay={2}>
+          Only if you plan with a good degree of foresight can serious mistakes be avoided. Foresight is a
+          given at PETIC GLOBAL.
+        </Feature>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="container split">
+      <div class="reveal">
+        <span class="eyebrow">Our journey</span>
+        <h2>From infrastructure to manufacturing.</h2>
+        <p>
+          The rapid growth of the group is driven by its bold vision, strong entrepreneurial spirit and
+          devotion to customer satisfaction, delivering excellent quality products and services.
+        </p>
+        <ul class="timeline mt-lg">
+          <li class="reveal">
+            <span class="tag">Phase one</span>
+            <h3>Gulf States &amp; Tanzania</h3>
+            <p>
+              Heavy investment in infrastructure and road projects, backed by a substantial fleet of mobile
+              plant in the Gulf States and East Africa.
+            </p>
+          </li>
+          <li class="reveal" data-delay="1">
+            <span class="tag">Phase two</span>
+            <h3>Rwanda &amp; Uganda</h3>
+            <p>
+              Manufacturing of household and pharmaceutical products in Rwanda, and gas cylinders in Uganda.
+            </p>
+          </li>
+          <li class="reveal" data-delay="2">
+            <span class="tag">Next</span>
+            <h3>Automotive assembly in Africa</h3>
+            <p>Representing Chinese car manufacturers by creating an assembling workshop in Africa.</p>
+          </li>
+        </ul>
+      </div>
+      <div class="reveal" data-delay="1">
+        <div class="side-card side-card--glass">
+          <span class="eyebrow">East Africa</span>
+          <h3>East Trading &amp; Manufacturing Company LTD</h3>
+          <p class="text-gold">{site.tanzaniaAddress}</p>
+          <p>
+            East Trading &amp; Manufacturing Company has been set up in Tanzania to provide quality
+            construction services to real estate contractors, construction companies, and the civil
+            engineering and infrastructure industries. The company established a successful track record
+            through commitments to its customers within the operations and construction domain.
+          </p>
+          <p>
+            After gaining extensive experience in building services, the company is moving forward to
+            undertake complex and challenging civil engineering and building projects, extending its services
+            from innovative technical concepts and front-end engineering designs to construction management,
+            installation, commissioning and long-term operation and maintenance.
+          </p>
+          <p>
+            The company holds a portfolio of strategic investments in the construction sector, owning a
+            substantial fleet of mobile plant in the Gulf States and East Africa. This complements the
+            company’s multi-domestic growth strategy, which focuses its operating hubs in both regions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split split--rev">
+      <div class="split__media reveal">
+        <Image
+          src={img('oil-maintenance-crew.jpg')}
+          alt="Maintenance crew servicing plant equipment"
+          widths={[400, 790]}
+          sizes="(min-width: 960px) 50vw, 100vw"
+        />
+      </div>
+      <div class="reveal" data-delay="1">
+        <span class="eyebrow">Our mission</span>
+        <h2>Contributing to the development of the Gulf States and East Africa.</h2>
+        <p class="lead">
+          Our mission is to participate in and contribute to the development and enrichment of services in the
+          Gulf States and East Africa region, offering communities solutions in the construction sector and
+          providing high quality engineering services.
+        </p>
+        <p>
+          The company is fully committed to looking after the interests of its customers, employees,
+          shareholders and communities. The group conducts its business ethically and profitably as a
+          responsible corporate citizen. To accomplish our mission, we continually:
+        </p>
+        <ul class="checks">
+          <li>
+            <Icon name="check" />
+            <span>
+              Enhance our competence with powerful, qualified engineering minds, enabling good communication
+              at all levels to improve the operating environment.
+            </span>
+          </li>
+          <li>
+            <Icon name="check" />
+            <span>
+              Expand our presence in existing markets through fair pricing, respecting deadlines, quality
+              products and good-value solutions, using advanced and creative technological approaches with
+              continuous improvement of our operating systems.
+            </span>
+          </li>
+          <li>
+            <Icon name="check" />
+            <span>
+              Energize our employees by continuously promoting a culture that recognizes performance and
+              valuable contributions, and celebrates successes.
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">Our licences</span>
+        <h2>Registered, certified and accountable.</h2>
+        <p class="lead">
+          Certificates of incorporation, registrations and memberships held by the group’s companies in East
+          Africa.
+        </p>
+      </div>
+      <div class="gallery reveal">
+        {licences.map((l) => (
+          <figure>
+            <Image
+              src={img(l.file)}
+              alt={l.alt}
+              class="gallery__doc"
+              widths={[400, 800]}
+              sizes="(min-width: 760px) 25vw, 50vw"
+              loading="lazy"
+            />
+            <figcaption>{l.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Partners title="Trusted by global brands." />
+  <Cta />
+</Base>
