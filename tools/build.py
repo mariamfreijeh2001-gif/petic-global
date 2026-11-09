@@ -314,20 +314,20 @@ home = f'''
     </div>
     <div class="grid grid--4">
       <a class="card reveal" href="civil-works-and-construction.html">
-        <div class="card__media"><span class="card__num">01</span><img src="assets/img/civil-bridge-beam.jpg" alt="Bridge beam being lifted into place by crane" loading="lazy"><i class="card__icon">{I['building']}</i></div>
-        <div class="card__body"><h3>Civil Works &amp; Construction</h3><p>East Trading &amp; Manufacturing Company holds a portfolio of strategic investment in construction equipment and a substantial fleet of mobile plant.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
+        <div class="card__media"><span class="card__num">01</span><img src="assets/img/civil-bridge-beam.jpg" alt="Bridge beam being lifted into place by crane" loading="lazy"></div>
+        <div class="card__body"><i class="card__icon">{I['building']}</i><h3>Civil Works &amp; Construction</h3><p>East Trading &amp; Manufacturing Company holds a portfolio of strategic investment in construction equipment and a substantial fleet of mobile plant.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
       <a class="card reveal" data-delay="1" href="roads-construction.html">
-        <div class="card__media"><span class="card__num">02</span><img src="assets/img/roads-paving.jpg" alt="Asphalt paving crew laying a new road" loading="lazy"><i class="card__icon">{I['road']}</i></div>
-        <div class="card__body"><h3>Roads Construction</h3><p>A hard-earned reputation for the construction quality of asphalt roads and highways, from large highways to small commercial site developments.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
+        <div class="card__media"><span class="card__num">02</span><img src="assets/img/roads-paving.jpg" alt="Asphalt paving crew laying a new road" loading="lazy"></div>
+        <div class="card__body"><i class="card__icon">{I['road']}</i><h3>Roads Construction</h3><p>A hard-earned reputation for the construction quality of asphalt roads and highways, from large highways to small commercial site developments.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
       <a class="card reveal" data-delay="2" href="agriculture.html">
-        <div class="card__media"><span class="card__num">03</span><img src="assets/img/agri-harvest-1.jpg" alt="Combine harvester working a wheat field" loading="lazy"><i class="card__icon">{I['leaf']}</i></div>
-        <div class="card__body"><h3>Agriculture</h3><p>AgriPro is a leading agriculture company dedicated to transforming arable lands into highly productive and sustainable agricultural ventures.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
+        <div class="card__media"><span class="card__num">03</span><img src="assets/img/agri-harvest-1.jpg" alt="Combine harvester working a wheat field" loading="lazy"></div>
+        <div class="card__body"><i class="card__icon">{I['leaf']}</i><h3>Agriculture</h3><p>AgriPro is a leading agriculture company dedicated to transforming arable lands into highly productive and sustainable agricultural ventures.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
       <a class="card reveal" data-delay="3" href="oil-and-gas.html">
-        <div class="card__media"><span class="card__num">04</span><img src="assets/img/oil-gas-plant-2.jpg" alt="Oil and gas processing plant" loading="lazy"><i class="card__icon">{I['flame']}</i></div>
-        <div class="card__body"><h3>Oil &amp; Gas</h3><p>Our clients include major oil and gas companies, projects and contractors in Yemen, with associations with renowned manufacturers worldwide.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
+        <div class="card__media"><span class="card__num">04</span><img src="assets/img/oil-gas-plant-2.jpg" alt="Oil and gas processing plant" loading="lazy"></div>
+        <div class="card__body"><i class="card__icon">{I['flame']}</i><h3>Oil &amp; Gas</h3><p>Our clients include major oil and gas companies, projects and contractors in Yemen, with associations with renowned manufacturers worldwide.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
     </div>
   </div>
@@ -529,20 +529,20 @@ activities = page_hero('Our activities', 'Our activities.', 'Roads, civil works,
   <div class="container">
     <div class="grid grid--2 grid--loose">
       <a class="card reveal" href="roads-construction.html">
-        <div class="card__media card__media--wide"><img src="assets/img/roads-rollers.jpg" alt="Road rollers compacting asphalt" loading="lazy"><i class="card__icon">{I['road']}</i></div>
-        <div class="card__body"><h3>Roads Construction</h3><p>East Trading &amp; Manufacturing Company has worked hard to maintain its reputation in the construction quality of asphalt roads and highways. It has successfully completed a range of large-scale road projects, from large highways to small commercial site developments, approaching every project with dedicated efficiency, technology and a special focus on safety.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
+        <div class="card__media card__media--wide"><img src="assets/img/roads-rollers.jpg" alt="Road rollers compacting asphalt" loading="lazy"></div>
+        <div class="card__body"><i class="card__icon">{I['road']}</i><h3>Roads Construction</h3><p>East Trading &amp; Manufacturing Company has worked hard to maintain its reputation in the construction quality of asphalt roads and highways. It has successfully completed a range of large-scale road projects, from large highways to small commercial site developments, approaching every project with dedicated efficiency, technology and a special focus on safety.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
       <a class="card reveal" data-delay="1" href="civil-works-and-construction.html">
-        <div class="card__media card__media--wide"><img src="assets/img/civil-tank-construction.jpg" alt="Storage tank construction with crane" loading="lazy"><i class="card__icon">{I['building']}</i></div>
-        <div class="card__body"><h3>Civil Works &amp; Construction</h3><p>East Trading &amp; Manufacturing Company holds a portfolio of strategic investment in construction equipment, property and a substantial fleet of mobile construction equipment in Tanzania. This complements the company’s multi-domestic growth strategy, which focuses on its operating hubs in East African countries.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
+        <div class="card__media card__media--wide"><img src="assets/img/civil-tank-construction.jpg" alt="Storage tank construction with crane" loading="lazy"></div>
+        <div class="card__body"><i class="card__icon">{I['building']}</i><h3>Civil Works &amp; Construction</h3><p>East Trading &amp; Manufacturing Company holds a portfolio of strategic investment in construction equipment, property and a substantial fleet of mobile construction equipment in Tanzania. This complements the company’s multi-domestic growth strategy, which focuses on its operating hubs in East African countries.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
       <a class="card reveal" data-delay="2" href="agriculture.html">
-        <div class="card__media card__media--wide"><img src="assets/img/agri-tractors.jpg" alt="Fleet of tractors in a field" loading="lazy"><i class="card__icon">{I['leaf']}</i></div>
-        <div class="card__body"><h3>Agriculture</h3><p>AgriPro is a leading agriculture company dedicated to transforming arable lands into highly productive and sustainable agricultural ventures. With a strong commitment to innovation, technology and environmental responsibility, we provide comprehensive solutions for land development and irrigation systems.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
+        <div class="card__media card__media--wide"><img src="assets/img/agri-tractors.jpg" alt="Fleet of tractors in a field" loading="lazy"></div>
+        <div class="card__body"><i class="card__icon">{I['leaf']}</i><h3>Agriculture</h3><p>AgriPro is a leading agriculture company dedicated to transforming arable lands into highly productive and sustainable agricultural ventures. With a strong commitment to innovation, technology and environmental responsibility, we provide comprehensive solutions for land development and irrigation systems.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
       <a class="card reveal" data-delay="3" href="oil-and-gas.html">
-        <div class="card__media card__media--wide"><img src="assets/img/oil-offshore-rig.jpg" alt="Offshore drilling rig" loading="lazy"><i class="card__icon">{I['flame']}</i></div>
-        <div class="card__body"><h3>Oil &amp; Gas</h3><p>A well-resourced, full-service oilfield supply company serving the oil &amp; gas industry, with asset integrity, material supply and static equipment rehabilitation services. Our clients include major oil and gas companies, projects and contractors in Yemen.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
+        <div class="card__media card__media--wide"><img src="assets/img/oil-offshore-rig.jpg" alt="Offshore drilling rig" loading="lazy"></div>
+        <div class="card__body"><i class="card__icon">{I['flame']}</i><h3>Oil &amp; Gas</h3><p>A well-resourced, full-service oilfield supply company serving the oil &amp; gas industry, with asset integrity, material supply and static equipment rehabilitation services. Our clients include major oil and gas companies, projects and contractors in Yemen.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
     </div>
   </div>

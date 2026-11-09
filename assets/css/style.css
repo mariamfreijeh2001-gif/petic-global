@@ -902,7 +902,12 @@ body.menu-open {
   grid-template-columns: 1fr;
 }
 .grid--4 {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 600px) {
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (min-width: 680px) {
   .grid--2,
@@ -978,25 +983,25 @@ body.menu-open {
   transform: scale(1.06);
 }
 .card__icon {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  left: 20px;
-  bottom: -24px;
   width: 56px;
   height: 56px;
+  margin: -28px 0 12px;
   border-radius: 16px;
   background: var(--gold);
   display: grid;
   place-items: center;
   color: var(--navy);
   box-shadow: var(--shadow-sm);
+  border: 3px solid #fff;
 }
 .card__icon svg {
   width: 26px;
   height: 26px;
 }
 .card__body {
-  padding: 36px 22px 22px;
+  padding: 0 22px 22px;
   display: flex;
   flex-direction: column;
   gap: 8px;
