@@ -13,12 +13,12 @@ from icons import ICONS as I  # noqa: E402
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SITE = 'PETIC GLOBAL'
-PHONE = '+974&nbsp;4441&nbsp;1083'
-PHONE_RAW = '+97444411083'
+PHONE = '+974&nbsp;4414&nbsp;1888'
+PHONE_RAW = '+97444141888'
 EMAIL = 'info@petic-global.com'
 SALES = 'sales@petic-global.com'
 CEO = 'ceo@petic-global.com'
-ADDRESS = '1st Floor, Office 08, Building 382, Street 340, Salwa Road, Zone 55, Doha, Qatar'
+ADDRESS = '1st Floor, Office 08, Building 382, Street 340, Salwa Road, Zone 55, P.O. Box 5090, Doha, Qatar'
 TZ_ADDRESS = 'Kisutu Street 2423, Dar es Salaam, Tanzania'
 PROFILE = 'assets/docs/PETIC-Global-Company-Profile.pdf'
 QUOTE = 'Chase the vision, not the money. The money will end up following you.'
@@ -771,5 +771,5 @@ contact = page_hero('Contact us', 'Get in touch.', 'We’d love to hear from you
   </div>
 </section>
 '''
-page('contact.html', 'Contact Us', 'Contact PETIC GLOBAL in Doha, Qatar or Dar es Salaam, Tanzania. Call +974&nbsp;4441&nbsp;1083 or email info@petic-global.com.', contact)
+page('contact.html', 'Contact Us', 'Contact PETIC GLOBAL in Doha, Qatar or Dar es Salaam, Tanzania. Call +974&nbsp;4414&nbsp;1888 or email info@petic-global.com.', contact)
 print('done')
