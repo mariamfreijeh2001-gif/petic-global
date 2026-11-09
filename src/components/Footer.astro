@@ -2,8 +2,6 @@
 /** Site footer: company blurb, link columns, contact details and copyright. */
 import Icon from './Icon.astro';
 import { activities, site } from '../data/site';
-import { Image } from 'astro:assets';
-import { img } from '../lib/images';
 ---
 
 <footer class="footer">
@@ -11,13 +9,12 @@ import { img } from '../lib/images';
     <div class="footer__top">
       <div>
         <a class="brand brand--on-dark" href="/">
-          <Image src={img('logo.png')} alt={site.name} width={110} height={45} densities={[1, 2, 3]} />
+          <img src="/img/logo.svg" alt={site.name} width="118" height="46" />
         </a>
         <h4 class="mt-md">About our company</h4>
         <p>
-          The Petic group invested heavily in the Gulf States and Tanzania, building infrastructure and road
-          projects. In its next phase the group moved into manufacturing household and pharmaceutical products
-          in Rwanda, and gas cylinders in Uganda.
+          A leading Qatari group specialized in the oil and gas sector, with construction, roads and
+          manufacturing operations across the Gulf States and Africa.
         </p>
         <div class="footer__social">
           <a href={site.social.facebook} aria-label="Facebook">
@@ -72,7 +69,6 @@ import { img } from '../lib/images';
               <br />
               <a href={`mailto:${site.salesEmail}`}>{site.salesEmail}</a>
               <br />
-              <a href={`mailto:${site.ceoEmail}`}>{site.ceoEmail}</a>
             </span>
           </li>
         </ul>
@@ -82,7 +78,7 @@ import { img } from '../lib/images';
       <span>
         &copy; <span data-year>{new Date().getFullYear()}</span> {site.name}. All rights reserved.
       </span>
-      <span>Construction &middot; Infrastructure &middot; Agriculture &middot; Oil &amp; Gas</span>
+      <span>Oil &amp; Gas &middot; Construction &middot; Roads &middot; Agriculture</span>
     </div>
   </div>
 </footer>

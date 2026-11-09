@@ -6,6 +6,7 @@ import SideNav from '../components/SideNav.astro';
 import Gallery from '../components/Gallery.astro';
 import ServiceList from '../components/ServiceList.astro';
 import Cta from '../components/Cta.astro';
+import { heavyEquipment } from '../data/site';
 
 const capabilities = [
   'Design and construction engineering',
@@ -15,19 +16,20 @@ const capabilities = [
   'Manpower supply and personnel services',
   'Facilities maintenance',
   'Concrete repair and waterproofing',
+  'Fabrication and installation of piping, steel structures and equipment',
 ];
 ---
 
 <Base
   title="Civil Works and Construction"
-  description="PETIC GLOBAL civil works and construction: design-build, project management, procurement, manpower and facilities maintenance in Tanzania and the Gulf."
+  description="Petic International civil works and construction: design-build, project management, procurement, manpower and facilities maintenance in Tanzania and the Gulf."
 >
   <PageHero
     crumb="Civil works and construction"
     title="Civil works &amp; construction."
     lead="Strategic investment in construction equipment, property and a substantial fleet of mobile plant, supporting projects across East Africa and the Gulf."
-    image="civil-bridge-beam.jpg"
-    alt="Bridge beam being lifted into place by crane"
+    image="construction-cranes-dusk.jpg"
+    alt="Tower cranes on a construction site at dusk"
     chip={{ title: '77+ projects', sub: 'Completed for private and public sectors' }}
     tags={['Design-build', 'Project management', 'Procurement', 'Maintenance']}
   />
@@ -53,16 +55,17 @@ const capabilities = [
           recognizing suggestions about improvements that lead to success.
         </p>
         <p class="reveal">
-          East Trading &amp; Manufacturing Company and its main group PETIC GLOBAL have already completed more
-          than 77 projects of various sizes for private and public sectors worldwide. The company and its main
-          group’s operations are well poised to take this commendable journey to its next level.
+          East Trading &amp; Manufacturing Company and its main group Petic International have already
+          completed more than 77 projects of various sizes for private and public sectors worldwide. Our heavy
+          earthmoving equipment, skilled operatives and expertise in the local working environment have also
+          enabled the company to be involved in many important civil and construction projects in Yemen.
         </p>
 
         <Gallery
           items={[
-            { file: 'civil-tank-construction.jpg', alt: 'Storage tank construction with crane' },
-            { file: 'civil-pipeline.jpg', alt: 'Pipeline installation across open ground' },
-            { file: 'civil-earthworks.jpg', alt: 'Earthworks on a desert road project' },
+            { file: 'civil-bridge-beam.jpg', alt: 'Bridge beam being lifted into place by crane' },
+            { file: 'pipeline-rack.jpg', alt: 'Pipeline rack installation' },
+            { file: 'desert-road-truck.jpg', alt: 'Earthworks on a desert road project' },
           ]}
         />
 
@@ -76,14 +79,18 @@ const capabilities = [
 
         <h3 class="reveal">Our equipment fleet</h3>
         <p class="reveal">
-          A substantial fleet of mobile construction equipment and transport vehicles supports our projects,
-          and heavy equipment is also available on a contract or rental basis.
+          A substantial fleet of mobile construction equipment and transport vehicles supports our civil
+          works, road construction, and construction and maintenance services. Heavy equipment is also
+          available on a contract or rental basis:
         </p>
+        <div class="reveal mt-sm">
+          <ServiceList items={[...heavyEquipment]} />
+        </div>
         <Gallery
           items={[
-            { file: 'fleet-mixer-truck.jpg', alt: 'Concrete mixer truck' },
+            { file: 'fleet-mixer-truck-hd.jpg', alt: 'Concrete mixer truck' },
             { file: 'fleet-loader.jpg', alt: 'Wheel loader and tipper truck' },
-            { file: 'fleet-tipper-trucks.jpg', alt: 'Tipper trucks in the yard' },
+            { file: 'fleet-tipper-hd.jpg', alt: 'Tipper truck in the yard' },
           ]}
         />
         <a class="btn btn--navy reveal" href="/contact/">

@@ -2,8 +2,6 @@
 /** Top contact bar, sticky header with primary navigation, and the mobile menu. */
 import Icon from './Icon.astro';
 import { nav, site } from '../data/site';
-import { Image } from 'astro:assets';
-import { img } from '../lib/images';
 
 const path = Astro.url.pathname;
 const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
@@ -47,14 +45,7 @@ const isActiveGroup = (item: (typeof nav)[number]) =>
 <header class="header">
   <div class="container">
     <a class="brand" href="/" aria-label={`${site.name} home`}>
-      <Image
-        src={img('logo.png')}
-        alt={site.name}
-        width={124}
-        height={50}
-        densities={[1, 2, 3]}
-        loading="eager"
-      />
+      <img src="/img/logo.svg" alt={site.name} width="128" height="50" />
     </a>
     <nav aria-label="Primary">
       <ul class="nav">

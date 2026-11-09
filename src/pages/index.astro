@@ -7,13 +7,13 @@ import Feature from '../components/Feature.astro';
 import Partners from '../components/Partners.astro';
 import Cta from '../components/Cta.astro';
 import { img } from '../lib/images';
-import { generalServices, site } from '../data/site';
+import { site } from '../data/site';
 
 const stats = [
-  { icon: 'trophy', value: 77, suffix: '+', label: 'Projects completed worldwide' },
+  { icon: 'trophy', value: 77, suffix: '+', label: 'Projects completed for private and public sectors' },
   { icon: 'globe', value: 8, suffix: '', label: 'Countries of operation' },
+  { icon: 'clock', value: 10, suffix: '+', label: 'Years in road construction' },
   { icon: 'layers', value: 4, suffix: '', label: 'Business sectors' },
-  { icon: 'pin', value: 3, suffix: '', label: 'Operating hubs: Al Khobar, Jubail, Qatar' },
 ] as const;
 
 const regions = [
@@ -37,8 +37,8 @@ const regions = [
       {
         code: 'YE',
         name: 'Yemen',
-        place: 'Oilfield supply',
-        text: 'Offices, workshops, warehousing and covered storage.',
+        place: 'Oilfield supply & maintenance',
+        text: 'Purpose-built facilities with offices, workshops, warehousing and covered storage.',
       },
     ],
   },
@@ -63,18 +63,25 @@ const regions = [
     ],
   },
 ];
+
+const projectFacts = [
+  { value: '1,000', unit: 'MMSCFD', label: 'natural gas processed at Khursaniyah Gas Plant' },
+  { value: '20,000', unit: 'm³', label: 'concrete poured on the petrochemical plant project' },
+  { value: '7,500', unit: 'tons', label: 'of equipment installed' },
+  { value: '347,000', unit: 'm²', label: 'of painting works' },
+];
 ---
 
 <Base
-  title="Construction, Agriculture, Oil & Gas"
-  description="PETIC GLOBAL delivers construction, roads, civil works, agriculture and oil & gas services across the Gulf States and East Africa. Chase the vision, not the money."
+  title="Oil & Gas, Construction and Roads"
+  description="Petic International is a Qatari group delivering oil and gas services and products, civil works, roads construction and agriculture across the Gulf States and Africa."
 >
   <section class="hero">
     <div class="hero__media">
       <Image
-        src={img('hero-oil-rig.jpg')}
-        alt="Oil and gas drilling rig with pipelines at sunset"
-        widths={[800, 1400, 2000]}
+        src={img('hero-offshore-sunset.jpg')}
+        alt="Offshore platform at sunset"
+        widths={[800, 1410]}
         sizes="100vw"
         loading="eager"
       />
@@ -83,15 +90,15 @@ const regions = [
     <div class="container hero__grid">
       <div>
         <span class="hero__tag reveal">
-          <b>Since 2002</b> Gulf States &middot; East Africa
+          <b>Since {site.since}</b> Qatar &middot; Gulf States &middot; Africa
         </span>
         <h1 class="reveal" data-delay="1">
-          Building <em>your dreams</em> across the Gulf and Africa.
+          Building <em>integrated</em> businesses across key sectors.
         </h1>
         <p class="lead reveal" data-delay="2">
-          Only if you plan with a good degree of foresight can serious mistakes be avoided. Foresight is a
-          given at PETIC GLOBAL: construction, infrastructure, agriculture and oil &amp; gas services
-          delivered with one simple promise, <strong>can do</strong>.
+          A leading Qatari company specialized in the oil and gas sector, with construction, roads and
+          manufacturing operations across the Gulf States and Africa. One simple promise guides every project:{' '}
+          <strong>can do</strong>.
         </p>
         <div class="hero__actions reveal" data-delay="3">
           <a class="btn btn--gold" href="/our-activities/">
@@ -111,6 +118,24 @@ const regions = [
         <div class="hero__card">
           <h3>What we do</h3>
           <div class="hero__list">
+            <a href="/oil-and-gas/">
+              <span>
+                <i>
+                  <Icon name="flame" />
+                </i>
+                Oil &amp; Gas Services
+              </span>
+              <Icon name="arrow" />
+            </a>
+            <a href="/oil-and-gas-products/">
+              <span>
+                <i>
+                  <Icon name="cog" />
+                </i>
+                Oil &amp; Gas Products
+              </span>
+              <Icon name="arrow" />
+            </a>
             <a href="/civil-works-and-construction/">
               <span>
                 <i>
@@ -135,15 +160,6 @@ const regions = [
                   <Icon name="leaf" />
                 </i>
                 Agriculture
-              </span>
-              <Icon name="arrow" />
-            </a>
-            <a href="/oil-and-gas/">
-              <span>
-                <i>
-                  <Icon name="flame" />
-                </i>
-                Oil &amp; Gas
               </span>
               <Icon name="arrow" />
             </a>
@@ -181,29 +197,30 @@ const regions = [
     <div class="container split">
       <div class="split__media reveal">
         <Image
-          src={img('oil-gas-plant-1.jpg')}
-          alt="Gas processing facility delivered by the group"
-          widths={[600, 900, 1150]}
+          src={img('workshop-welders.jpg')}
+          alt="Welders fabricating steel in the workshop"
+          widths={[600, 900, 1410]}
           sizes="(min-width: 960px) 50vw, 100vw"
         />
         <div class="split__badge">
           <b>Can do!</b>
-          <span>The PETIC GLOBAL philosophy, fulfilled over and over.</span>
+          <span>The Petic International philosophy, fulfilled over and over.</span>
         </div>
       </div>
       <div class="reveal" data-delay="1">
-        <span class="eyebrow">Our specialties</span>
-        <h2>Reliability, from feasibility to hand-over.</h2>
+        <span class="eyebrow">Our speciality</span>
+        <h2>A leading Qatari company in the oil and gas sector.</h2>
         <p class="lead">
-          East Trading &amp; its main group PETIC GLOBAL International’s project and construction management
-          services include early involvement during the feasibility and design development stages, securing
-          value engineering alternatives and full scrutiny of constructability issues.
+          Petic International specializes in the manufacturing and development of spare parts and specialized
+          equipment used in oil wells and various industrial operations. From its headquarters in Qatar, the
+          company manages and expands its operations across multiple countries, providing advanced and
+          flexible industrial solutions that meet local and international market demands.
         </p>
         <p>
-          Planning and coordination of construction activities and designs are delivered in time to secure
-          uninterrupted construction activities. We continually strive to improve our performance and to
-          complete projects within the scheduled time, while maintaining standards of quality and safety
-          during execution.
+          Recognized for strong technical expertise and a commitment to the highest standards of quality and
+          professionalism, Petic International is a trusted partner for companies operating in the energy
+          sector. We continuously develop innovative products and effective solutions that enhance operational
+          efficiency and performance within the oil and gas industry.
         </p>
         <ul class="checks">
           <li>
@@ -212,7 +229,7 @@ const regions = [
           </li>
           <li>
             <Icon name="check" />
-            <span>Value engineering alternatives and constructability review</span>
+            <span>Value engineering alternatives and full scrutiny of constructability</span>
           </li>
           <li>
             <Icon name="check" />
@@ -220,7 +237,7 @@ const regions = [
           </li>
           <li>
             <Icon name="check" />
-            <span>Customer-oriented synergy arising from our partnerships</span>
+            <span>Products and services that comply with international industry standards</span>
           </li>
         </ul>
         <div class="actions">
@@ -241,50 +258,56 @@ const regions = [
           <h2>Our activities.</h2>
         </div>
         <p class="lead reveal" data-delay="1">
-          Four sectors, one standard: quality, safety and delivery on time across the Gulf States and East
-          Africa.
+          Oil and gas services and products, civil works, roads and agriculture, delivered with one standard
+          of quality, safety and on-time completion.
         </p>
       </div>
       <div class="grid grid--4">
         <ActivityCard
-          href="/civil-works-and-construction/"
+          href="/oil-and-gas/"
           number="01"
-          icon="building"
-          image="civil-bridge-beam.jpg"
-          alt="Bridge beam being lifted into place by crane"
-          title="Civil Works &amp; Construction"
-          text="East Trading &amp; Manufacturing Company holds a portfolio of strategic investment in construction equipment and a substantial fleet of mobile plant."
+          icon="flame"
+          image="gas-flares.jpg"
+          alt="Gas flares at a processing plant"
+          title="Oil &amp; Gas Services"
+          text="Asset integrity, material supply, onshore and offshore maintenance, EPC, pre-commissioning, shutdowns and rig moves for the energy industry."
         />
         <ActivityCard
-          href="/roads-construction/"
+          href="/oil-and-gas-products/"
           number="02"
-          icon="road"
-          image="roads-paving.jpg"
-          alt="Asphalt paving crew laying a new road"
-          title="Roads Construction"
-          text="A hard-earned reputation for the construction quality of asphalt roads and highways, from large highways to small commercial site developments."
+          icon="cog"
+          image="product-flange.jpg"
+          alt="Forged steel flanges"
+          title="Oil &amp; Gas Products"
+          text="Forged fittings and flanges, pipeline products, pressure and flow instrumentation, and chemical solutions for upstream and downstream operations."
           delay={1}
         />
         <ActivityCard
-          href="/agriculture/"
+          href="/civil-works-and-construction/"
           number="03"
-          icon="leaf"
-          image="agri-harvest-1.jpg"
-          alt="Combine harvester working a wheat field"
-          title="Agriculture"
-          text="AgriPro is a leading agriculture company dedicated to transforming arable lands into highly productive and sustainable agricultural ventures."
+          icon="building"
+          image="construction-cranes-dusk.jpg"
+          alt="Tower cranes on a construction site at dusk"
+          title="Civil Works &amp; Construction"
+          text="Design-build, construction and project management, with a substantial fleet of mobile construction equipment and more than 77 completed projects."
           delay={2}
         />
         <ActivityCard
-          href="/oil-and-gas/"
+          href="/roads-construction/"
           number="04"
-          icon="flame"
-          image="oil-gas-plant-2.jpg"
-          alt="Oil and gas processing plant"
-          title="Oil &amp; Gas"
-          text="Our clients include major oil and gas companies, projects and contractors in Yemen, with associations with renowned manufacturers worldwide."
+          icon="road"
+          image="roads-roller-aerial.jpg"
+          alt="Road roller compacting fresh asphalt"
+          title="Roads Construction"
+          text="Asphalt roads, highways and bridges, from earthwork and drainage to paving and aggregate production, with over ten years of experience."
           delay={3}
         />
+      </div>
+      <div class="actions">
+        <a class="link-arrow" href="/agriculture/">
+          Also see our agriculture activity, AgriPro
+          <Icon name="arrow" />
+        </a>
       </div>
     </div>
   </section>
@@ -293,9 +316,9 @@ const regions = [
     <div class="container split split--rev">
       <div class="split__media reveal">
         <Image
-          src={img('civil-earthworks.jpg')}
-          alt="Earthworks on a desert road project"
-          widths={[600, 900, 1150]}
+          src={img('construction-cranes-dusk.jpg')}
+          alt="Construction site with tower cranes"
+          widths={[600, 900, 1410]}
           sizes="(min-width: 960px) 50vw, 100vw"
         />
       </div>
@@ -303,24 +326,29 @@ const regions = [
         <span class="eyebrow">Why choose us</span>
         <h2>The benefit of working with our company.</h2>
         <p class="lead">
-          PETIC GLOBAL holds a portfolio of strategic investment in construction equipment, property and a
-          substantial fleet of mobile plant in Saudi Arabia. This complements the company’s multi-domestic
-          growth strategy, which centres on its operating hubs in Al Khobar, Jubail and Qatar.
+          Petic International holds a portfolio of strategic investment in construction equipment, property
+          and a substantial fleet of mobile plant in Saudi Arabia. This complements the company’s
+          multi-domestic growth strategy, which centres on its operating hubs in Al Khobar, Jubail and Qatar.
         </p>
         <p>
-          We embrace holistic development and support for employees, with the aim of being a first-choice
-          employer.
+          Our personnel are our most valuable asset. We have gained the trust of our clients and built a
+          database of specialized, professional staff of all disciplines, nationals and expatriates, to fulfil
+          every client need.
         </p>
-        <div class="grid grid--2 grid--tight mt-md">
-          {generalServices.map((s) => (
-            <div class="service">
-              <i>
-                <Icon name="check" />
-              </i>
-              <span>{s}</span>
-            </div>
-          ))}
-        </div>
+        <ul class="checks">
+          <li>
+            <Icon name="check" />
+            <span>Safety first: an HSE management system driving continuous improvement</span>
+          </li>
+          <li>
+            <Icon name="check" />
+            <span>Integrated, scalable maintenance resources through a facility’s lifecycle</span>
+          </li>
+          <li>
+            <Icon name="check" />
+            <span>Honesty, integrity and the finest work standards on every project</span>
+          </li>
+        </ul>
         <div class="actions">
           <a class="btn btn--ghost" href="/our-activities/">
             See more
@@ -335,36 +363,64 @@ const regions = [
     <div class="container">
       <div class="section-head section-head--center reveal">
         <span class="eyebrow">Our services</span>
-        <h2>First-class construction and infrastructure.</h2>
+        <h2>From the well to the refinery, and the road in between.</h2>
         <p class="lead">
-          From architecture to industrial engineering, we take projects from concept through construction,
-          commissioning and long-term operation and maintenance.
+          Every facet of our comprehensive spectrum of services is governed by a high quality standard,
+          brought to life daily through quality management, excellent safety practices and customer-oriented
+          partnerships.
         </p>
       </div>
       <div class="grid grid--3">
-        <Feature icon="building" title="Construction">
-          Infrastructure solutions and first-class construction, delivered by skilled teams and a modern fleet
-          of equipment.
+        <Feature icon="shield" title="Asset integrity &amp; inspection">
+          Certified teams (API, CSWIP, NACE, ASNT) and an ISO/IEC 17020 accredited inspection body keeping
+          ageing assets safe and productive.
         </Feature>
-        <Feature icon="layers" title="Architecture" delay={1}>
-          Industrial engineering and construction, from innovative technical concepts to front-end engineering
-          designs.
+        <Feature icon="cog" title="Maintenance services" delay={1}>
+          Integrated onshore and offshore maintenance, static equipment rehabilitation, chemical cleaning, hot
+          tapping and shutdown services.
         </Feature>
-        <Feature icon="cog" title="Industrial engineering" delay={2}>
-          Oil rigs or refineries, power stations or steel mills, piping, mechanical and construction, whatever
-          the project.
+        <Feature icon="layers" title="EPC &amp; fabrication" delay={2}>
+          Engineering, procurement and construction for onshore and offshore projects, backed by a 24,200 m²
+          fabrication workshop.
         </Feature>
-        <Feature icon="eye" title="Interior design">
-          Architectural finishing works, renovation and refurbishment of residential complexes, commercial
-          buildings and industrial facilities.
+        <Feature icon="doc" title="Material supply &amp; products">
+          Oilfield supply from drilling materials to downstream equipment, plus our own range of fittings,
+          flanges and instrumentation.
         </Feature>
-        <Feature icon="road" title="Infrastructure" delay={1}>
-          Roads, bridges, drainage, water supply, sewage, electrical, telecommunications and CATV networks.
+        <Feature icon="building" title="Civil works &amp; roads" delay={1}>
+          Design-build construction, project management and all phases of road construction with our own
+          equipment fleet.
         </Feature>
-        <Feature icon="globe" title="Skyscrapers &amp; city landmarks" delay={2}>
-          Design-build projects and construction management for landmark developments in the Gulf and East
-          Africa.
+        <Feature icon="users" title="Manpower consultancy" delay={2}>
+          Experienced, highly qualified personnel of all disciplines to fulfil client requirements, nationals
+          and expatriates alike.
         </Feature>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sand">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="reveal">
+          <span class="eyebrow">Our projects</span>
+          <h2>Proven on major energy projects.</h2>
+        </div>
+        <p class="lead reveal" data-delay="1">
+          Khursaniyah Gas Plant includes two gas-conditioning trains and ethane and natural gas liquids
+          recovery units, producing 550 MMSCFD of sales gas, 240,000 barrels of ethane and NGL, and 1,800
+          metric tons of sulphur per day.
+        </p>
+      </div>
+      <div class="grid grid--4">
+        {projectFacts.map((f, i) => (
+          <div class="pillar reveal" data-delay={i || undefined}>
+            <h3>
+              {f.value} <small>{f.unit}</small>
+            </h3>
+            <p>{f.label}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -377,30 +433,30 @@ const regions = [
           <h2>Systematically achieving the optimum.</h2>
         </div>
         <p class="lead reveal" data-delay="1">
-          It is not without reason that PETIC GLOBAL is one of the companies able to document their competence
-          in black and white for the benefit of our customers.
+          It is not without reason that Petic International is one of the companies able to document their
+          competence in black and white for the benefit of our customers.
         </p>
       </div>
       <div class="pillars">
         <div class="pillar reveal">
-          <h3>Our strategy</h3>
+          <h3>Projects</h3>
           <p>
-            Our strategies, structure and systems are focused on creating constant customer satisfaction by
-            delivering services, solutions and products that are qualitative and cost effective.
+            The Petic International philosophy can be put into one simple formula: can do! That is a promise
+            we have been fulfilling over and over, and it will remain the highest factor guiding our actions.
           </p>
         </div>
         <div class="pillar reveal" data-delay="1">
-          <h3>Our promise</h3>
+          <h3>Mission</h3>
           <p>
-            The PETIC GLOBAL philosophy can be put into one simple formula: can do! That promise remains the
-            highest factor guiding our actions in future.
+            Oil rigs or refineries, power stations or steel mills, piping, mechanical or construction:
+            whatever the project, we develop our involvement so that our clients can take a back seat.
           </p>
         </div>
         <div class="pillar reveal" data-delay="2">
-          <h3>Our standard</h3>
+          <h3>Think</h3>
           <p>
-            A high quality standard that makes the group a successful enterprise, brought to life daily
-            through quality management and excellent safety practices.
+            Only if you plan with a good degree of foresight can serious mistakes be avoided. Foresight is a
+            given at Petic International.
           </p>
         </div>
       </div>
@@ -438,10 +494,10 @@ const regions = [
 
   <section class="quote-band">
     <Image
-      src={img('oil-rig-dusk.jpg')}
+      src={img('pumpjack-sunset.jpg')}
       alt=""
       aria-hidden="true"
-      widths={[700]}
+      widths={[800, 1410]}
       sizes="100vw"
       loading="lazy"
     />
@@ -452,7 +508,7 @@ const regions = [
       <blockquote>
         Chase the vision, not the money. <em>The money will end up following you.</em>
       </blockquote>
-      <cite>The PETIC GLOBAL philosophy</cite>
+      <cite>The Petic International philosophy</cite>
     </div>
   </section>
 

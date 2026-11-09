@@ -1,0 +1,191 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PageHero from '../components/PageHero.astro';
+import SideNav from '../components/SideNav.astro';
+import Gallery from '../components/Gallery.astro';
+import ServiceList from '../components/ServiceList.astro';
+import Feature from '../components/Feature.astro';
+import Cta from '../components/Cta.astro';
+
+const fittings = [
+  'Reducing tees, straight tees and straight crosses',
+  '45°, 90° (R=3.0D) and 180° elbows, forged elbows and inclined tees',
+  'Concentric and eccentric reducers, flanging nipples',
+  'Socket elbows, socket tees, socket crosses and pipe sockets',
+  'Single and double socket couplings, female thread couplings',
+  'Socket unions, threaded elbows, threaded unions and weldolets',
+];
+const flanges = [
+  'Weld neck, slip-on, blind, socket weld, threaded and lap joint flanges',
+  'Plate, spectacle blind and loose flanges, and custom types to order',
+  'ASME B16.5 forged flanges NPS ½" to 24", class 150 to 2500',
+  'ASME B16.47 Series A and B flanges NPS 26" to 60", class 150 to 900',
+  'ASME B16.11 socket weld and threaded fittings NPS ⅛" to 4", class 3000 to 9000',
+  'ASME B16.9 welded fittings NPS ½" to 48" in SCH 40, 80, 160 and XXS',
+  'MSS SP-97 branch outlet fittings NPS ⅛" to 36", class 1500 to 9000',
+];
+const materials = [
+  'Carbon steel A105, A350 LF2 / LF3',
+  'Stainless steel A182 F304, F304L and more',
+  'Duplex and super duplex A182 F51 (UNS S31803 / 2205)',
+  'Alloy steel A182 F11, F12, F22 (1.25Cr-0.5Mo / 2.25Cr-1Mo)',
+];
+const pipeline = [
+  'Insulation and anti-corrosion pipeline',
+  'P91 material, factory prefabricated',
+  'Forged assembly parts',
+  'Wear-resistant pipeline',
+  'High-pressure piping and elbows',
+];
+const upstreamWell = [
+  'Cementing',
+  'Stimulation',
+  'Fracturing',
+  'Coil tubing and pressure pumping',
+  'Enhanced oil recovery',
+];
+const upstreamProduction = [
+  'Demulsifiers and corrosion inhibitors',
+  'Flow assurance',
+  'Scale inhibitors',
+  'Biocides',
+  'H₂S scavengers',
+  'Oxygen scavengers',
+  'Sour gas treatment',
+];
+const downstream = [
+  'Water and process treatment',
+  'Refinery process treatment',
+  'Refinery gas treatment',
+  'Reverse osmosis and sea water',
+  'Waste water and effluent treatment',
+  'Utility and process treatment',
+];
+---
+
+<Base
+  title="Oil &amp; Gas Products"
+  description="Petic International products for the oil and gas industry: forged fittings and flanges, pipeline products, pressure, level, temperature and flow instrumentation, and chemical solutions."
+>
+  <PageHero
+    crumb="Oil &amp; gas products"
+    title="Oil &amp; gas products."
+    lead="Forged fittings and flanges, pipeline products, process instrumentation and chemical solutions, manufactured and supplied to international standards for oil and gas, petrochemical, energy and process industries."
+    image="product-flange.jpg"
+    alt="Forged steel flanges"
+    chip={{ title: 'ASME &middot; MSS', sub: 'Made to international standards' }}
+    tags={['Fittings', 'Flanges', 'Pipeline', 'Instrumentation', 'Chemicals']}
+  />
+
+  <section class="section">
+    <div class="container detail">
+      <div class="prose">
+        <span class="eyebrow reveal">Fittings and flanges</span>
+        <h2 class="reveal">Reliable connections for critical piping systems.</h2>
+        <p class="lead reveal" data-delay="1">
+          We manufacture and supply a complete range of industrial fittings and flanges designed for reliable,
+          high-performance piping connections. Engineered for strength, precision and corrosion resistance,
+          they ensure secure sealing performance and long-term durability under demanding operating
+          conditions.
+        </p>
+        <h3 class="reveal">Forged and socket fittings</h3>
+        <div class="reveal mt-sm">
+          <ServiceList items={fittings} />
+        </div>
+        <h3 class="reveal">Flanges and size ranges</h3>
+        <div class="reveal mt-sm">
+          <ServiceList items={flanges} />
+        </div>
+        <h3 class="reveal">Common materials</h3>
+        <div class="reveal mt-sm">
+          <ServiceList items={materials} />
+        </div>
+
+        <Gallery
+          items={[
+            { file: 'product-flange.jpg', alt: 'Weld neck and slip-on flanges' },
+            { file: 'pipes-yard-hd.jpg', alt: 'Steel line pipe in the yard' },
+            { file: 'plant-pipes-blue.jpg', alt: 'Installed process piping' },
+          ]}
+        />
+
+        <h3 class="reveal">Pipeline products</h3>
+        <div class="reveal mt-sm">
+          <ServiceList items={pipeline} />
+        </div>
+
+        <h3 class="reveal">Instrumentation</h3>
+        <p class="reveal">
+          Stainless steel pressure, level, temperature and flow instruments with fully digital circuits,
+          stable long-distance signal transmission and high resistance to interference and impact.
+        </p>
+        <div class="grid grid--2 grid--tight mt-sm reveal">
+          <Feature icon="target" title="Pressure transmitters">
+            General diffused-silicon transmitters from -0.1 to 100 MPa with 4-20 mA, RS485, 0-5 V and 0-10 V
+            outputs and accuracy to 0.075% FS, plus compact ceramic-sensor units to 5 MPa for pumps and
+            compressors.
+          </Feature>
+          <Feature icon="layers" title="Level transmitters">
+            Hydrostatic and split liquid level transmitters for wells, lakes and tanks, ranges to 400 m, with
+            digital display and integrated junction box for easy installation and calibration.
+          </Feature>
+          <Feature icon="eye" title="Pressure switches">
+            Intelligent OLED pressure switches with 4-20 mA output, two PNP switching outputs and on-site
+            display, programmable zero, span and set points without potentiometer adjustment.
+          </Feature>
+          <Feature icon="flame" title="Temperature transmitters">
+            Platinum resistance and thermocouple sensors measuring liquids, vapours, gases and surfaces from
+            -200 °C to 1,600 °C, with 4-20 mA and HART outputs.
+          </Feature>
+          <Feature icon="cog" title="Flowmeters">
+            Electromagnetic flowmeters (0.3-12 m/s, split, integral or plug-in) for conductive and corrosive
+            liquids, and vortex flowmeters DN15-DN160 with flange, thread, clamp or plug-in mounting.
+          </Feature>
+          <Feature icon="shield" title="Thermal flow switches">
+            Real-time monitoring of liquid flow with LED indication, relay or PNP outputs and 15-60 mm probes,
+            protecting pumps from idling and monitoring pipeline flow rates.
+          </Feature>
+        </div>
+
+        <h3 class="reveal">Chemical solutions</h3>
+        <div class="grid grid--3 mt-sm reveal">
+          <div class="pillar">
+            <h3>Upstream well services</h3>
+            <ul>
+              {upstreamWell.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="pillar">
+            <h3>Upstream production</h3>
+            <ul>
+              {upstreamProduction.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="pillar">
+            <h3>Downstream treatment</h3>
+            <ul>
+              {downstream.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <a class="btn btn--navy reveal mt-md" href="/contact/">
+          Request a quotation
+          <Icon name="arrow" />
+        </a>
+      </div>
+      <SideNav />
+    </div>
+  </section>
+
+  <Cta
+    title="Looking for a specific fitting, instrument or chemical?"
+    text="Send us the specification and our supply team will respond with availability and pricing."
+  />
+</Base>

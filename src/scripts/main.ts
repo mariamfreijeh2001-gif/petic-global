@@ -1,5 +1,5 @@
 /**
- * PETIC GLOBAL site behaviour.
+ * Petic International site behaviour.
  * Sticky header shadow and scroll progress, back-to-top, mobile menu,
  * reveal-on-scroll animations, animated counters and the contact form.
  */

@@ -7,21 +7,56 @@ import Gallery from '../components/Gallery.astro';
 import ServiceList from '../components/ServiceList.astro';
 import Feature from '../components/Feature.astro';
 import Cta from '../components/Cta.astro';
-import { generalServices, site } from '../data/site';
+import { site } from '../data/site';
+
+const offshoreWorks = [
+  'Cleaning, blasting and painting of platform structures and decks',
+  'Safety nets, ladders, handrails, boat landings, fenders and riser guards',
+  'Fire-fighting networks and new deck extensions',
+  'Navigation systems and mooring buoy services',
+  'Near-shore pipeline replacement and repair, free-span supports',
+  'Clamps, anodes and splash-zone coating repair',
+  'Tank blasting and painting, cutting and underwater welding',
+  'Decommissioning of monopods and tripods, submarine cable surveys',
+];
+const offshoreInspection = [
+  'Pipeline inspection (UT, GVI, CVI, CPM and assessment)',
+  'Internal pipeline inspection, weld and pipe scanning',
+  'NDT inspection of vertical structures and risers',
+  'ROV inspection and video survey of subsea components',
+  'Cathodic protection and coating condition checks',
+  'Side-scan, pipe-tracker, sub-bottom and geophysical surveys',
+];
+const onshoreScope = [
+  'Maintenance engineering',
+  'Maintenance planning (CMMS) and implementation',
+  'Corrective, preventive and predictive programmes for electrical, instrument, mechanical and static equipment',
+  'Major equipment overhauling and turnarounds',
+  'Upgrades, expansions and modifications to existing facilities',
+  'Material management and stock control',
+];
+const workshop = [
+  'Workshop floor space of 24,200 m² with 4,500 m² storage and 600 m² administration',
+  'Steel work 3,000 tons per year: hangers, handrails, platforms, pipe racks, skids and stacks',
+  'Plate work 300 tons per year: pressure vessels, horizontal tanks, air cooler headers and silos',
+  'Filters, separators, gas scrubbers, KO drums and flares',
+  'Piping spools and piping skids, vertical tanks up to 300 tons and 1,000 bbl storage tanks',
+  'Offshore shelters, enclosures and porta cabins',
+];
 ---
 
 <Base
-  title="Oil &amp; Gas"
-  description="PETIC GLOBAL oil &amp; gas: asset integrity inspection, oilfield material supply and static equipment rehabilitation."
+  title="Oil &amp; Gas Services"
+  description="Petic International oil and gas services: asset integrity, material supply, onshore and offshore maintenance, static equipment rehabilitation, EPC, pre-commissioning, shutdowns and rig moves."
 >
   <PageHero
-    crumb="Oil &amp; gas"
-    title="Oil &amp; gas."
-    lead="Asset integrity, material supply and static equipment rehabilitation for the oil &amp; gas industry, serving major companies, projects and contractors."
-    image="oil-gas-plant-2.jpg"
-    alt="Oil and gas processing plant"
-    chip={{ title: 'API &middot; CSWIP &middot; NACE', sub: 'Certified inspection teams' }}
-    tags={['Asset integrity', 'Material supply', 'Equipment rehabilitation']}
+    crumb="Oil &amp; gas services"
+    title="Oil &amp; gas services."
+    lead="Asset integrity, material supply, maintenance, fabrication and EPC for the energy industry, delivered by certified teams from our facilities in Qatar and Yemen."
+    image="gas-flares.jpg"
+    alt="Gas flares at a processing plant"
+    chip={{ title: 'API &middot; CSWIP &middot; NACE', sub: 'Certified inspection and maintenance teams' }}
+    tags={['Asset integrity', 'Maintenance', 'EPC', 'Material supply', 'Rig moves']}
   />
 
   <section class="section">
@@ -31,69 +66,162 @@ import { generalServices, site } from '../data/site';
         <h2 class="reveal">Safe operation of ageing assets.</h2>
         <p class="lead reveal" data-delay="1">
           One of the major challenges facing the oil and gas industry today is to ensure the safe operation of
-          their ageing assets. Asset integrity entails making sure an asset can perform its required function
+          ageing assets. Asset integrity entails making sure an asset can perform its required function
           effectively and safely.
         </p>
         <p class="reveal">
-          Our asset integrity partner, Mega, has a well trained and experienced team certified to API (510,
-          570, 580, 653), CSWIP welding &amp; painting, NACE and ASNT (UT, RT, MT, PT, VT), supported by
+          Our asset integrity arm, Mega, has a well trained and experienced team certified to API (510, 570,
+          580, 653), CSWIP welding &amp; painting, NACE and ASNT (UT, RT, MT, PT, VT), supported by
           specialized tools and equipment. Mega is accredited by the Egyptian Accreditation Council (EGAC)
           under ISO/IEC 17020 as a Type C inspection body in the field of in-service inspection.
+        </p>
+        <p class="reveal">
+          A dedicated special-services team of multi-disciplined engineers and technicians, familiar with all
+          safety procedures and able to adopt different customers’ HSE regulations, is well equipped, highly
+          mobile and can be mobilized at short notice.
         </p>
 
         <Gallery
           items={[
-            { file: 'oil-maintenance-crew.jpg', alt: 'Maintenance crew servicing static equipment' },
-            { file: 'oil-gas-plant-1.jpg', alt: 'Gas processing facility' },
-            { file: 'oil-offshore-rig.jpg', alt: 'Offshore drilling rig' },
+            { file: 'heat-exchanger-service.jpg', alt: 'Technician servicing a heat exchanger' },
+            { file: 'onshore-plant.jpg', alt: 'Onshore gas processing plant' },
+            { file: 'drilling-rig-offshore.jpg', alt: 'Offshore drilling rig' },
           ]}
         />
 
         <h3 class="reveal">Material supply services</h3>
         <p class="reveal">
-          PETIC GLOBAL is a well-resourced and full-service oilfield supply company serving the oil &amp; gas
-          industry in the country. Our clients include major oil and gas companies, projects and contractors
-          in Yemen. Our company has associations with renowned manufacturers, major mills and suppliers across
-          the world.
+          Petic International is a well-resourced, full-service oilfield supply company serving the oil and
+          gas industry. Our clients include major oil and gas companies, projects and contractors in Yemen,
+          and we hold associations with renowned manufacturers, major mills and suppliers across the world.
         </p>
         <p class="reveal">
-          PETIC GLOBAL is an oilfield supplier you can trust for any urgent and important oil &amp; gas
-          project supply. Operations are conducted from purpose-built facilities in Yemen, comprising offices,
-          workshops, warehousing and covered storage areas, from where a wide range of products and services
-          covering a large spectrum of the energy industry are supplied. Products range from materials
-          required for the drilling of wells to equipment required for large downstream projects.
+          Operations are conducted from purpose-built facilities in Yemen comprising offices, workshops,
+          warehousing and covered storage areas, from where a wide range of products and services covering a
+          large spectrum of the energy industry are supplied: from materials required for the drilling of
+          wells to equipment required for large downstream projects. Supply of containers, drilling spares,
+          parts and service, custom clearance and catering complete the offer.
         </p>
         <p class="reveal">
-          PETIC GLOBAL Stocks and Supplies are committed to client satisfaction in every aspect of our
-          business, guided by our core values of integrity and teamwork.
+          <a class="link-arrow" href="/oil-and-gas-products/">
+            Browse our fittings, flanges, instrumentation and chemical solutions
+            <Icon name="arrow" />
+          </a>
         </p>
+
+        <h3 class="reveal">Maintenance services</h3>
+        <p class="reveal">
+          In association with major international companies, Petic International provides scalable, integrated
+          maintenance resources and services during a facility’s lifecycle in any location in Yemen. We
+          develop a commercial model with you to accomplish your business goals, and our HSE management system
+          provides a dynamic platform for continuous improvement in safety performance.
+        </p>
+        <div class="grid grid--2 grid--tight mt-sm reveal">
+          <Feature icon="globe" title="Offshore maintenance">
+            Rehabilitation and maintenance for offshore asset assurance, from platform structures and
+            pipelines to inspection, maintenance and repair programmes, driven by experienced human resources.
+          </Feature>
+          <Feature icon="cog" title="Onshore maintenance">
+            An integrated global maintenance service using the latest techniques and best practice, covering
+            equipment, tools and buildings through long-term contracts controlled by pre-set KPIs for
+            availability, reliability and HSE.
+          </Feature>
+        </div>
+        <h4 class="mt-md">Offshore works</h4>
+        <div class="reveal mt-xs">
+          <ServiceList items={offshoreWorks} />
+        </div>
+        <h4 class="mt-md">Inspection, maintenance and repair surveys</h4>
+        <div class="reveal mt-xs">
+          <ServiceList items={offshoreInspection} />
+        </div>
+        <h4 class="mt-md">Onshore service scope</h4>
+        <div class="reveal mt-xs">
+          <ServiceList items={onshoreScope} />
+        </div>
 
         <Gallery
           items={[
-            { file: 'oil-pipes-yard.jpg', alt: 'Steel pipes in the supply yard' },
-            { file: 'oil-rig-move.jpg', alt: 'Rig move with heavy transport' },
-            { file: 'oil-gas-plant-3.jpg', alt: 'Oil and gas facility at dusk' },
+            { file: 'offshore-deck-crew.jpg', alt: 'Crew working on an offshore deck' },
+            { file: 'rig-jackup-2.jpg', alt: 'Jack-up rig at sea' },
+            { file: 'refinery-night.jpg', alt: 'Refinery at night' },
           ]}
         />
 
+        <h3 class="reveal">Specialized services</h3>
         <div class="grid grid--2 grid--tight mt-sm reveal">
-          <Feature icon="users" title="Team capabilities &amp; qualification">
-            Well trained and certified maintenance teams who have gained various maintenance technologies by
-            handling a diversity of process types (oil, gas, LNG and more) with their related operation
-            techniques and safety hazards, inside and outside the oil &amp; gas sector, for railways, the
-            industrial sector and more.
-          </Feature>
           <Feature icon="cog" title="Static equipment rehabilitation">
-            A significant market share as a unique service provider for boiler and heater revamping, separator
-            fabrication and heat exchangers in oil &amp; gas fields, including water and fire-tube boiler
-            revamping, supported by a specialized workshop complying with the ASME code.
+            A significant market share as a unique provider of boiler and heater revamping, separator
+            fabrication and heat exchangers in oil and gas fields, supported by a specialized workshop
+            complying with the ASME code.
+          </Feature>
+          <Feature icon="shield" title="Chemical cleaning">
+            Cleaning chemicals circulated in a closed loop with no leak or contamination; non-toxic,
+            non-flammable, non-corrosive and environment-friendly, dissolving deposits without affecting the
+            equipment substrate.
+          </Feature>
+          <Feature icon="flame" title="Early production facilities">
+            Fast-track production systems that create early cash flow with minimum outlay and provide
+            real-time production data to appraise reservoir performance before permanent facilities are
+            installed.
+          </Feature>
+          <Feature icon="target" title="Hot tapping">
+            Connections to existing piping or pressure vessels without emptying the section, so a pipe or tank
+            stays in operation while maintenance is done, and pressurized casing fluids can be drained.
+          </Feature>
+          <Feature icon="layers" title="Tube bundle puller">
+            Sophisticated equipment for heat exchanger tube bundles up to 12 m long, 2 m in diameter and 35
+            tons, the first of its kind among specialized maintenance companies in Egypt.
+          </Feature>
+          <Feature icon="building" title="Scaffolding, painting &amp; insulation">
+            A dedicated SPI team with its own suspended mobile scaffolding system, certified inspectors
+            (CITS), all painting materials and procedures, and mobile insulation workshops to BS, OSHA and EN
+            specifications.
+          </Feature>
+          <Feature icon="doc" title="Electrical, instrumentation &amp; communication">
+            A specialized, highly competitive team providing construction, maintenance and modification
+            activities inside and outside the oil and gas sector.
+          </Feature>
+          <Feature icon="clock" title="Pre-commissioning &amp; shutdowns">
+            Turnkey commissioning projects tracked with our own CTS commissioning tracking system, plus a
+            dedicated shutdown team that masters the unique nature of shutdown work.
           </Feature>
         </div>
 
-        <h3 class="reveal">Related services</h3>
+        <h3 class="reveal">EPC and fabrication</h3>
+        <p class="reveal">
+          Together with our partners and a certified fabrication facility in Suez, we have the track record,
+          resources, technical capabilities and systems to pursue and deliver large-scale and complex projects
+          for both onshore and offshore applications.
+        </p>
         <div class="reveal mt-sm">
-          <ServiceList items={[...generalServices]} />
+          <ServiceList items={workshop} />
         </div>
+
+        <Gallery
+          items={[
+            { file: 'plant-night.jpg', alt: 'Gas plant illuminated at night' },
+            { file: 'pipes-yard-hd.jpg', alt: 'Steel pipes stored in the yard' },
+            { file: 'gas-plant-desert.jpg', alt: 'Gas plant in the desert' },
+          ]}
+        />
+
+        <h3 class="reveal">Team capacities and qualification</h3>
+        <p class="reveal">
+          Well trained and certified maintenance teams who have gained the various maintenance technologies by
+          handling a diversity of process types in oil, gas, LNG and more, with their related operation
+          techniques and safety hazards, inside and outside the oil and gas sector, including railways and
+          industrial plants. Having completed a decade in the construction business, we handle an umbrella
+          range of services: production operations and maintenance, mechanical, instrumentation and electrical
+          modification, and HSE and emergency management.
+        </p>
+
+        <h3 class="reveal">Rig moves and manpower</h3>
+        <p class="reveal">
+          Our heavy transport fleet and crews carry out complete rig moves, and our manpower consultancy
+          supplies experienced, highly qualified personnel of all disciplines, nationals and expatriates, to
+          fulfil client requirements.
+        </p>
         <p class="reveal mt-md">
           <strong>Call for an appointment</strong>
         </p>
@@ -107,7 +235,7 @@ import { generalServices, site } from '../data/site';
   </section>
 
   <Cta
-    title="Need oilfield supply or inspection?"
+    title="Need oilfield supply, inspection or maintenance?"
     text="From drilling materials to downstream equipment and in-service inspection, we are ready to support your project."
   />
 </Base>

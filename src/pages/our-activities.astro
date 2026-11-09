@@ -8,26 +8,45 @@ import Cta from '../components/Cta.astro';
 
 <Base
   title="Our Activities"
-  description="Explore PETIC GLOBAL’s activities: roads construction, civil works and construction, agriculture, and oil & gas services."
+  description="Explore Petic International’s activities: roads construction, civil works and construction, agriculture, and oil & gas services."
 >
   <PageHero
     crumb="Our activities"
     title="Our activities."
-    lead="Roads, civil works, agriculture and oil &amp; gas: four sectors delivered with dedicated efficiency, technology and a special focus on safety."
-    image="oil-rig-move.jpg"
-    alt="Rig move with heavy transport"
-    chip={{ title: '4 sectors', sub: 'One standard of quality and safety' }}
-    tags={['Roads', 'Civil works', 'Agriculture', 'Oil & gas']}
+    lead="Oil and gas services and products, civil works, roads and agriculture, delivered with dedicated efficiency, technology and a special focus on safety."
+    image="jackup-rig-sunset.jpg"
+    alt="Jack-up rig at sunset"
+    chip={{ title: '5 activities', sub: 'One standard of quality and safety' }}
+    tags={['Oil & gas services', 'Products', 'Civil works', 'Roads', 'Agriculture']}
   />
 
   <section class="section">
     <div class="container">
       <div class="grid grid--2 grid--loose">
         <ActivityCard
+          href="/oil-and-gas/"
+          icon="flame"
+          wide
+          image="gas-flares.jpg"
+          alt="Gas flares at a processing plant"
+          title="Oil &amp; Gas Services"
+          text="Asset integrity inspection by certified teams, material supply from purpose-built facilities in Yemen, integrated onshore and offshore maintenance, static equipment rehabilitation, chemical cleaning, hot tapping, scaffolding, painting and insulation, EPC, pre-commissioning, shutdowns and rig moves."
+        />
+        <ActivityCard
+          href="/oil-and-gas-products/"
+          icon="cog"
+          wide
+          image="product-flange.jpg"
+          alt="Forged steel flanges"
+          title="Oil &amp; Gas Products"
+          text="Forged fittings and flanges to ASME and MSS standards in carbon, stainless, duplex and alloy steels, pipeline products, pressure, level, temperature and flow instrumentation, and chemical solutions for upstream and downstream operations."
+          delay={1}
+        />
+        <ActivityCard
           href="/roads-construction/"
           icon="road"
           wide
-          image="roads-rollers.jpg"
+          image="roads-rollers-hd.jpg"
           alt="Road rollers compacting asphalt"
           title="Roads Construction"
           text="East Trading &amp; Manufacturing Company has worked hard to maintain its reputation in the construction quality of asphalt roads and highways. It has successfully completed a range of large-scale road projects, from large highways to small commercial site developments, approaching every project with dedicated efficiency, technology and a special focus on safety."
@@ -36,8 +55,8 @@ import Cta from '../components/Cta.astro';
           href="/civil-works-and-construction/"
           icon="building"
           wide
-          image="civil-tank-construction.jpg"
-          alt="Storage tank construction with crane"
+          image="construction-cranes-dusk.jpg"
+          alt="Tower cranes on a construction site at dusk"
           title="Civil Works &amp; Construction"
           text="East Trading &amp; Manufacturing Company holds a portfolio of strategic investment in construction equipment, property and a substantial fleet of mobile construction equipment in Tanzania. This complements the company’s multi-domestic growth strategy, which focuses on its operating hubs in East African countries."
           delay={1}
@@ -51,16 +70,6 @@ import Cta from '../components/Cta.astro';
           title="Agriculture"
           text="AgriPro is a leading agriculture company dedicated to transforming arable lands into highly productive and sustainable agricultural ventures. With a strong commitment to innovation, technology and environmental responsibility, we provide comprehensive solutions for land development and irrigation systems."
           delay={2}
-        />
-        <ActivityCard
-          href="/oil-and-gas/"
-          icon="flame"
-          wide
-          image="oil-offshore-rig.jpg"
-          alt="Offshore drilling rig"
-          title="Oil &amp; Gas"
-          text="A well-resourced, full-service oilfield supply company serving the oil &amp; gas industry, with asset integrity, material supply and static equipment rehabilitation services. Our clients include major oil and gas companies, projects and contractors in Yemen."
-          delay={3}
         />
       </div>
     </div>
@@ -81,6 +90,16 @@ import Cta from '../components/Cta.astro';
         </Feature>
         <Feature icon="shield" title="Operation &amp; maintenance" delay={2}>
           Facilities maintenance, concrete repair and waterproofing, long-term operation and maintenance.
+        </Feature>
+        <Feature icon="users" title="Manpower consultancy">
+          Specialized, professional staff of all disciplines, nationals and expatriates, to fulfil client
+          needs.
+        </Feature>
+        <Feature icon="layers" title="Fabrication workshop" delay={1}>
+          24,200 m² of workshop space producing 3,000 tons of steel work and 300 tons of plate work per year.
+        </Feature>
+        <Feature icon="clock" title="Pre-commissioning &amp; shutdowns" delay={2}>
+          Turnkey commissioning with our own tracking system and a dedicated shutdown team.
         </Feature>
       </div>
     </div>
