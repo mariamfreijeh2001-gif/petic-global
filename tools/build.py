@@ -70,7 +70,7 @@ def header(current):
     <div class="topbar__contacts">
       <a href="tel:{PHONE_RAW}">{I['phone']}{PHONE}</a>
       <a href="mailto:{EMAIL}">{I['mail']}{EMAIL}</a>
-      <a href="contact.html">{I['pin']}Doha, Qatar &middot; Dar es Salaam, Tanzania</a>
+      <a href="contact.html">{I['pin']}Doha, Qatar</a>
     </div>
     <div class="topbar__social">
       <a href="#" aria-label="Facebook">{I['fb']}</a>
@@ -98,7 +98,7 @@ def header(current):
 </nav>
 '''
 
-def cta(title='Have a project in mind?', text='You’re welcome to send a message or give us a call. Our team in Doha and Dar es Salaam will get back to you promptly.'):
+def cta(title='Have a project in mind?', text='You’re welcome to send a message or give us a call. Our team in Doha will get back to you promptly.'):
     return f'''
 <section class="cta">
   <div class="container">
@@ -731,16 +731,15 @@ oil = page_hero('Oil &amp; gas', 'Oil &amp; gas.', 'Asset integrity, material su
 page('oil-and-gas.html', 'Oil &amp; Gas', 'PETIC GLOBAL oil &amp; gas: asset integrity inspection, oilfield material supply and static equipment rehabilitation.', oil)
 
 # ---------------------------------------------------------------- CONTACT
-contact = page_hero('Contact us', 'Get in touch.', 'We’d love to hear from you. For general enquiries you can reach the PETIC GLOBAL support team by phone, email or the form below.', 'engineers-warehouse.jpg', 'Engineers reviewing plans', chip=('2 offices', 'Doha, Qatar and Dar es Salaam, Tanzania'), tags=['Doha', 'Dar es Salaam', 'Phone', 'Email', 'Enquiry form']) + f'''
+contact = page_hero('Contact us', 'Get in touch.', 'We’d love to hear from you. For general enquiries you can reach the PETIC GLOBAL support team by phone, email or the form below.', 'engineers-warehouse.jpg', 'Engineers reviewing plans', chip=('Doha, Qatar', 'Salwa Road, Zone 55'), tags=['Doha', 'Phone', 'Email', 'Enquiry form']) + f'''
 <section class="section">
   <div class="container contact-grid">
     <div>
       <span class="eyebrow reveal">Contact details</span>
       <h2 class="reveal">Send a message.</h2>
-      <p class="lead reveal" data-delay="1">Our teams in Doha and Dar es Salaam respond to project enquiries, supply requests and partnership proposals.</p>
+      <p class="lead reveal" data-delay="1">Our team in Doha responds to project enquiries, supply requests and partnership proposals.</p>
       <div class="contact-list">
         <div class="contact-item reveal"><i>{I['pin']}</i><div><h3>Headquarters</h3><p>{ADDRESS}</p></div></div>
-        <div class="contact-item reveal" data-delay="1"><i>{I['pin']}</i><div><h3>East Africa office</h3><p>East Trading &amp; Manufacturing Company LTD<br>{TZ_ADDRESS}</p></div></div>
         <div class="contact-item reveal" data-delay="2"><i>{I['phone']}</i><div><h3>Phone</h3><a href="tel:{PHONE_RAW}">{PHONE}</a></div></div>
         <div class="contact-item reveal" data-delay="3"><i>{I['mail']}</i><div><h3>Email</h3><a href="mailto:{EMAIL}">{EMAIL}</a><a href="mailto:{SALES}">{SALES}</a><a href="mailto:{CEO}">{CEO}</a></div></div>
       </div>
@@ -771,5 +770,5 @@ contact = page_hero('Contact us', 'Get in touch.', 'We’d love to hear from you
   </div>
 </section>
 '''
-page('contact.html', 'Contact Us', 'Contact PETIC GLOBAL in Doha, Qatar or Dar es Salaam, Tanzania. Call +974&nbsp;4414&nbsp;1888 or email info@petic-global.com.', contact)
+page('contact.html', 'Contact Us', 'Contact PETIC GLOBAL in Doha, Qatar. Call +974&nbsp;4414&nbsp;1888 or email info@petic-global.com.', contact)
 print('done')
