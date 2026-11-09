@@ -105,6 +105,7 @@ def header(current):
     <a class="btn btn--gold btn--sm header__cta" href="{PROFILE}" target="_blank" rel="noopener">{I['download']}Download Profile</a>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span></button>
   </div>
+  <div class="header__progress" aria-hidden="true"></div>
 </header>
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
   <ul>{mobile_nav_html(current)}</ul>
@@ -207,15 +208,23 @@ def page(filename, title, description, body, current=None):
         f.write(html)
     print('wrote', filename)
 
-def page_hero(crumb, h1, lead, img, alt):
+def page_hero(crumb, h1, lead, img, alt, chip=None, tags=None):
+    chip_html = f'<div class="page-hero__chip">{chip[0]}<small>{chip[1]}</small></div>' if chip else ''
+    tags_html = '<div class="page-hero__tags reveal" data-delay="2">' + ''.join(f'<span>{t}</span>' for t in tags) + '</div>' if tags else f'<p class="page-hero__quote reveal" data-delay="2">“{QUOTE}”</p>'
     return f'''
-<section class="page-hero">
-  <img src="assets/img/{img}" alt="{alt}">
+<section class="page-hero page-hero--split">
+  <img src="assets/img/{img}" alt="" aria-hidden="true">
   <div class="container">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>{crumb}</span></nav>
-    <h1 class="reveal">{h1}</h1>
-    <p class="lead reveal" data-delay="1">{lead}</p>
-    <p class="page-hero__quote reveal" data-delay="2">“{QUOTE}”</p>
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>{crumb}</span></nav>
+      <h1 class="reveal">{h1}</h1>
+      <p class="lead reveal" data-delay="1">{lead}</p>
+      {tags_html}
+    </div>
+    <div class="page-hero__img reveal" data-delay="2">
+      <img src="assets/img/{img}" alt="{alt}">
+      {chip_html}
+    </div>
   </div>
 </section>
 '''
@@ -242,6 +251,11 @@ def side_nav(current):
 </aside>
 '''
 
+PARTNERS = [('partner-almaha.jpg','Almaha for Industry'),('partner-linex.jpg','LINE-X'),('partner-petro-sharq.jpg','Petro Sharq Group'),('partner-teamone.jpg','TeamOne Shipping &amp; Clearing'),('partner-nature-petroleum.jpg','Nature for Petroleum, Gas and Minerals')]
+def partners_marquee():
+    logos = ''.join(f'<div class="partner"><img src="assets/img/{f}" alt="{a}" loading="lazy"></div>' for f, a in PARTNERS)
+    return f'<div class="marquee reveal" aria-label="Partner logos"><div class="marquee__track">{logos}{logos}</div></div>'
+
 def service_list(items, icon='check'):
     return '<div class="services">' + ''.join(f'<div class="service"><i>{I[icon]}</i><span>{s}</span></div>' for s in items) + '</div>'
 
@@ -249,6 +263,7 @@ def service_list(items, icon='check'):
 home = f'''
 <section class="hero">
   <div class="hero__media"><img src="assets/img/hero-oil-rig.jpg" alt="Oil and gas drilling rig with pipelines at sunset"></div>
+  <div class="hero__grid-lines" aria-hidden="true"></div>
   <div class="container hero__grid">
     <div>
       <span class="hero__tag reveal"><b>Since 2002</b> Gulf States &middot; East Africa</span>
@@ -261,6 +276,7 @@ home = f'''
       <p class="hero__quote reveal" data-delay="4">“{QUOTE}”</p>
     </div>
     <div class="hero__panel reveal" data-delay="2">
+      <div class="hero__float"><b>77+</b><span>projects delivered worldwide</span></div>
       <div class="hero__card">
         <h3>What we do</h3>
         <div class="hero__list">
@@ -272,6 +288,7 @@ home = f'''
       </div>
     </div>
   </div>
+  <div class="hero__scroll" aria-hidden="true"><i></i>Scroll</div>
 </section>
 
 <section class="stats" aria-label="Key figures">
@@ -313,19 +330,19 @@ home = f'''
     </div>
     <div class="grid grid--4">
       <a class="card reveal" href="civil-works-and-construction.html">
-        <div class="card__media"><img src="assets/img/construction-worker.jpg" alt="Construction worker on site" loading="lazy"><i class="card__icon">{I['building']}</i></div>
+        <div class="card__media"><span class="card__num">01</span><img src="assets/img/construction-worker.jpg" alt="Construction worker on site" loading="lazy"><i class="card__icon">{I['building']}</i></div>
         <div class="card__body"><h3>Civil Works &amp; Construction</h3><p>East Trading &amp; Manufacturing Company holds a portfolio of strategic investment in construction equipment and a substantial fleet of mobile plant.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
       <a class="card reveal" data-delay="1" href="roads-construction.html">
-        <div class="card__media"><img src="assets/img/road-asphalt.jpg" alt="Asphalt paving machinery on a new road" loading="lazy"><i class="card__icon">{I['road']}</i></div>
+        <div class="card__media"><span class="card__num">02</span><img src="assets/img/road-asphalt.jpg" alt="Asphalt paving machinery on a new road" loading="lazy"><i class="card__icon">{I['road']}</i></div>
         <div class="card__body"><h3>Roads Construction</h3><p>A hard-earned reputation for the construction quality of asphalt roads and highways, from large highways to small commercial site developments.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
       <a class="card reveal" data-delay="2" href="agriculture.html">
-        <div class="card__media"><img src="assets/img/agri-harvest-1.jpg" alt="Combine harvester working a wheat field" loading="lazy"><i class="card__icon">{I['leaf']}</i></div>
+        <div class="card__media"><span class="card__num">03</span><img src="assets/img/agri-harvest-1.jpg" alt="Combine harvester working a wheat field" loading="lazy"><i class="card__icon">{I['leaf']}</i></div>
         <div class="card__body"><h3>Agriculture</h3><p>AgriPro is a leading agriculture company dedicated to transforming arable lands into highly productive and sustainable agricultural ventures.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
       <a class="card reveal" data-delay="3" href="oil-and-gas.html">
-        <div class="card__media"><img src="assets/img/refinery-plant.jpg" alt="Oil and gas processing plant" loading="lazy"><i class="card__icon">{I['flame']}</i></div>
+        <div class="card__media"><span class="card__num">04</span><img src="assets/img/refinery-plant.jpg" alt="Oil and gas processing plant" loading="lazy"><i class="card__icon">{I['flame']}</i></div>
         <div class="card__body"><h3>Oil &amp; Gas</h3><p>Our clients include major oil and gas companies, projects and contractors in Yemen, with associations with renowned manufacturers worldwide.</p><span class="link-arrow">Learn more{I['arrow']}</span></div>
       </a>
     </div>
@@ -393,13 +410,28 @@ home = f'''
   </div>
 </section>
 
-<section class="section section--soft">
+<section class="quote-band">
+  <img src="assets/img/site-engineer.jpg" alt="" aria-hidden="true" loading="lazy">
+  <div class="container reveal">
+    <span class="mark" aria-hidden="true">“</span>
+    <blockquote>Chase the vision, not the money. <em>The money will end up following you.</em></blockquote>
+    <cite>The PETIC GLOBAL philosophy</cite>
+  </div>
+</section>
+
+<section class="section section--sand">
   <div class="container">
-    <div class="section-head section-head--center reveal"><span class="eyebrow">Testimonials</span><h2>Building the future cities.</h2></div>
-    <div class="grid grid--3">
-      <div class="quote reveal"><h3>Unique and influential solutions</h3><p>Urban design draws together the many strands of place-making, environmental stewardship, social equity and economic viability into the creation of places with distinct beauty and identity.</p></div>
-      <div class="quote reveal" data-delay="1"><h3>Building the idea of future</h3><p>As the complexity of buildings increases, the field of architecture has become multi-disciplinary, combining technological expertise with discipline.</p></div>
-      <div class="quote reveal" data-delay="2"><h3>Engineering and design combined</h3><p>A unique combination of engineering and design, creating places with distinct beauty and identity for the communities we serve.</p></div>
+    <div class="section-head section-head--split">
+      <div class="reveal"><span class="eyebrow">Where we operate</span><h2>Present across the Gulf and East Africa.</h2></div>
+      <p class="lead reveal" data-delay="1">Operating hubs in the Gulf States and East Africa, with manufacturing and supply operations that keep growing.</p>
+    </div>
+    <div class="presence">
+      <div class="place reveal"><b>QATAR</b><h3>Doha</h3><p>Group headquarters on Salwa Road.</p></div>
+      <div class="place reveal" data-delay="1"><b>SAUDI ARABIA</b><h3>Al Khobar &amp; Jubail</h3><p>Operating hubs and a substantial fleet of mobile plant.</p></div>
+      <div class="place reveal" data-delay="2"><b>TANZANIA</b><h3>Dar es Salaam</h3><p>East Trading &amp; Manufacturing Company: roads, civil works, construction.</p></div>
+      <div class="place reveal" data-delay="3"><b>RWANDA</b><h3>Manufacturing</h3><p>Household and pharmaceutical products.</p></div>
+      <div class="place reveal" data-delay="4"><b>UGANDA</b><h3>Manufacturing</h3><p>Gas cylinder production.</p></div>
+      <div class="place reveal" data-delay="4"><b>YEMEN</b><h3>Oilfield supply</h3><p>Offices, workshops, warehousing and covered storage.</p></div>
     </div>
   </div>
 </section>
@@ -407,12 +439,7 @@ home = f'''
 <section class="section section--tight">
   <div class="container">
     <div class="section-head section-head--center reveal"><span class="eyebrow">Our partners</span><h2>Trusted by industry partners.</h2></div>
-    <div class="partners reveal">
-      <div class="partner"><img src="assets/img/partner-almaha.jpg" alt="Almaha for Industry" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-linex.jpg" alt="LINE-X" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-petro-sharq.jpg" alt="Petro Sharq Group" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-teamone.jpg" alt="TeamOne Shipping &amp; Clearing" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-nature-petroleum.jpg" alt="Nature for Petroleum, Gas and Minerals" loading="lazy"></div>
+    {partners_marquee()}
     </div>
   </div>
 </section>
@@ -421,7 +448,7 @@ home = f'''
 page('index.html', 'Construction, Infrastructure, Agriculture & Oil and Gas', 'PETIC GLOBAL delivers construction, roads, civil works, agriculture and oil & gas services across the Gulf States and East Africa. Chase the vision, not the money.', home)
 
 # ---------------------------------------------------------------- ABOUT
-about = page_hero('About us', 'About PETIC GLOBAL.', 'A group established across the Middle East and Africa, providing quality construction projects and engineering services in the sector of oil &amp; gas, infrastructure, manufacturing and agriculture.', 'site-engineer.jpg', 'Site engineer overseeing construction works') + f'''
+about = page_hero('About us', 'About PETIC GLOBAL.', 'A group established across the Middle East and Africa, providing quality construction projects and engineering services in the sector of oil &amp; gas, infrastructure, manufacturing and agriculture.', 'site-engineer.jpg', 'Site engineer overseeing construction works', chip=('77+ projects', 'Private and public sectors worldwide'), tags=['Construction', 'Infrastructure', 'Manufacturing', 'Agriculture', 'Oil &amp; gas']) + f'''
 <section class="section">
   <div class="container split">
     <div class="reveal">
@@ -495,10 +522,10 @@ about = page_hero('About us', 'About PETIC GLOBAL.', 'A group established across
   <div class="container">
     <div class="section-head section-head--center reveal"><span class="eyebrow">Our licences</span><h2>Registered, certified and accountable.</h2><p class="lead">Certificates of incorporation, registrations and memberships held by the group’s companies in East Africa.</p></div>
     <div class="gallery reveal">
-      <img src="assets/img/license-incorporation-tanzania.jpg" alt="Certificate of incorporation, Tanzania" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff">
-      <img src="assets/img/license-registration-1.jpg" alt="Company registration document" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff">
-      <img src="assets/img/license-registration-2.jpg" alt="Company registration document" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff">
-      <img src="assets/img/license-uma-certificate.jpg" alt="Uganda Manufacturers Association membership certificate" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff">
+      <figure><img src="assets/img/license-incorporation-tanzania.jpg" alt="Certificate of incorporation, Tanzania" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff"><figcaption>Certificate of Incorporation, Tanzania</figcaption></figure>
+      <figure><img src="assets/img/license-registration-1.jpg" alt="Company registration, Rwanda Development Board" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff"><figcaption>Company registration, Rwanda</figcaption></figure>
+      <figure><img src="assets/img/license-registration-2.jpg" alt="Business activities registration, Rwanda Development Board" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff"><figcaption>Business activities, Rwanda</figcaption></figure>
+      <figure><img src="assets/img/license-uma-certificate.jpg" alt="Uganda Manufacturers Association membership certificate" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff"><figcaption>Uganda Manufacturers Association member</figcaption></figure>
     </div>
   </div>
 </section>
@@ -506,12 +533,7 @@ about = page_hero('About us', 'About PETIC GLOBAL.', 'A group established across
 <section class="section section--tight">
   <div class="container">
     <div class="section-head section-head--center reveal"><span class="eyebrow">Our partners</span><h2>Trusted by global brands.</h2></div>
-    <div class="partners reveal">
-      <div class="partner"><img src="assets/img/partner-almaha.jpg" alt="Almaha for Industry" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-linex.jpg" alt="LINE-X" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-petro-sharq.jpg" alt="Petro Sharq Group" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-teamone.jpg" alt="TeamOne Shipping &amp; Clearing" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-nature-petroleum.jpg" alt="Nature for Petroleum, Gas and Minerals" loading="lazy"></div>
+    {partners_marquee()}
     </div>
   </div>
 </section>
@@ -520,7 +542,7 @@ about = page_hero('About us', 'About PETIC GLOBAL.', 'A group established across
 page('about.html', 'About Us', 'Learn about PETIC GLOBAL: our history across the Gulf States, Tanzania, Rwanda and Uganda, our mission, licences and partners.', about)
 
 # ---------------------------------------------------------------- OUR ACTIVITIES
-activities = page_hero('Our activities', 'Our activities.', 'Roads, civil works, agriculture and oil &amp; gas: four sectors delivered with dedicated efficiency, technology and a special focus on safety.', 'construction-worker.jpg', 'Construction worker on a building site') + f'''
+activities = page_hero('Our activities', 'Our activities.', 'Roads, civil works, agriculture and oil &amp; gas: four sectors delivered with dedicated efficiency, technology and a special focus on safety.', 'construction-worker.jpg', 'Construction worker on a building site', chip=('4 sectors', 'One standard of quality and safety'), tags=['Roads', 'Civil works', 'Agriculture', 'Oil &amp; gas']) + f'''
 <section class="section">
   <div class="container">
     <div class="grid grid--2" style="gap:32px">
@@ -559,7 +581,7 @@ activities = page_hero('Our activities', 'Our activities.', 'Roads, civil works,
 page('our-activities.html', 'Our Activities', 'Explore PETIC GLOBAL’s activities: roads construction, civil works and construction, agriculture, and oil & gas services.', activities)
 
 # ---------------------------------------------------------------- AGRICULTURE
-agri = page_hero('Agriculture', 'Agriculture: AgriPro.', 'Transforming arable lands into highly productive and sustainable agricultural ventures through land development, irrigation systems, technology and modern heavy machinery.', 'agri-tractors.jpg', 'Fleet of tractors lined up in a field') + f'''
+agri = page_hero('Agriculture', 'Agriculture: AgriPro.', 'Transforming arable lands into highly productive and sustainable agricultural ventures through land development, irrigation systems, technology and modern heavy machinery.', 'agri-tractors.jpg', 'Fleet of tractors lined up in a field', chip=('Thousands of acres', 'Transformed into productive farmland'), tags=['Land development', 'Irrigation', 'Technology', 'Heavy machinery']) + f'''
 <section class="section">
   <div class="container detail">
     <div class="prose">
@@ -610,7 +632,7 @@ agri = page_hero('Agriculture', 'Agriculture: AgriPro.', 'Transforming arable la
 page('agriculture.html', 'Agriculture', 'AgriPro by PETIC GLOBAL: land development, irrigation systems, technology integration and heavy machinery for sustainable agriculture.', agri)
 
 # ---------------------------------------------------------------- ROADS
-roads = page_hero('Roads construction', 'Roads construction.', 'A reputation built on the construction quality of asphalt roads and highways, from large highways to small commercial site developments.', 'road-asphalt.jpg', 'Asphalt paving machinery on a new road') + f'''
+roads = page_hero('Roads construction', 'Roads construction.', 'A reputation built on the construction quality of asphalt roads and highways, from large highways to small commercial site developments.', 'road-asphalt.jpg', 'Asphalt paving machinery on a new road', chip=('Multi-million dollar', 'Public and private sector projects'), tags=['Highways', 'Earthwork', 'Drainage', 'Asphalt paving', 'Bridges']) + f'''
 <section class="section">
   <div class="container detail">
     <div class="prose">
@@ -648,7 +670,7 @@ roads = page_hero('Roads construction', 'Roads construction.', 'A reputation bui
 page('roads-construction.html', 'Roads Construction', 'PETIC GLOBAL roads construction: asphalt roads and highways, earthwork, drainage, paving, bridges and aggregate production.', roads)
 
 # ---------------------------------------------------------------- CIVIL
-civil = page_hero('Civil works and construction', 'Civil works &amp; construction.', 'Strategic investment in construction equipment, property and a substantial fleet of mobile plant, supporting projects across East Africa and the Gulf.', 'steel-frame-worker.jpg', 'Worker on a steel structure') + f'''
+civil = page_hero('Civil works and construction', 'Civil works &amp; construction.', 'Strategic investment in construction equipment, property and a substantial fleet of mobile plant, supporting projects across East Africa and the Gulf.', 'steel-frame-worker.jpg', 'Worker on a steel structure', chip=('77+ projects', 'Completed for private and public sectors'), tags=['Design-build', 'Project management', 'Procurement', 'Maintenance']) + f'''
 <section class="section">
   <div class="container detail">
     <div class="prose">
@@ -681,7 +703,7 @@ civil = page_hero('Civil works and construction', 'Civil works &amp; constructio
 page('civil-works-and-construction.html', 'Civil Works and Construction', 'PETIC GLOBAL civil works and construction: design-build, project management, procurement, manpower and facilities maintenance in Tanzania and the Gulf.', civil)
 
 # ---------------------------------------------------------------- OIL & GAS
-oil = page_hero('Oil &amp; gas', 'Oil &amp; gas.', 'Asset integrity, material supply and static equipment rehabilitation for the oil &amp; gas industry, serving major companies, projects and contractors.', 'refinery-plant.jpg', 'Oil and gas processing plant') + f'''
+oil = page_hero('Oil &amp; gas', 'Oil &amp; gas.', 'Asset integrity, material supply and static equipment rehabilitation for the oil &amp; gas industry, serving major companies, projects and contractors.', 'refinery-plant.jpg', 'Oil and gas processing plant', chip=('API &middot; CSWIP &middot; NACE', 'Certified inspection teams'), tags=['Asset integrity', 'Material supply', 'Equipment rehabilitation']) + f'''
 <section class="section">
   <div class="container detail">
     <div class="prose">
@@ -726,7 +748,7 @@ oil = page_hero('Oil &amp; gas', 'Oil &amp; gas.', 'Asset integrity, material su
 page('oil-and-gas.html', 'Oil & Gas', 'PETIC GLOBAL oil & gas: asset integrity inspection, oilfield material supply and static equipment rehabilitation.', oil)
 
 # ---------------------------------------------------------------- CONTACT
-contact = page_hero('Contact us', 'Get in touch.', 'We’d love to hear from you. For general enquiries you can reach the PETIC GLOBAL support team by phone, email or the form below.', 'engineers-warehouse.jpg', 'Engineers reviewing plans') + f'''
+contact = page_hero('Contact us', 'Get in touch.', 'We’d love to hear from you. For general enquiries you can reach the PETIC GLOBAL support team by phone, email or the form below.', 'engineers-warehouse.jpg', 'Engineers reviewing plans', chip=('2 offices', 'Doha, Qatar and Dar es Salaam, Tanzania'), tags=['Doha', 'Dar es Salaam', 'Phone', 'Email', 'Enquiry form']) + f'''
 <section class="section">
   <div class="container contact-grid">
     <div>

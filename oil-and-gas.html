@@ -44,6 +44,7 @@
     <a class="btn btn--gold btn--sm header__cta" href="assets/docs/PETIC-Global-Company-Profile.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></svg>Download Profile</a>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span></button>
   </div>
+  <div class="header__progress" aria-hidden="true"></div>
 </header>
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
   <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="our-activities.html">Our Activities</a></li><li><ul class="mobile-sub"><li><a href="agriculture.html">Agriculture</a></li><li><a href="roads-construction.html">Roads Construction</a></li><li><a href="civil-works-and-construction.html">Civil Works & Construction</a></li><li><a href="oil-and-gas.html" class="is-active">Oil & Gas</a></li></ul></li><li><a href="contact.html">Contact Us</a></li></ul>
@@ -53,13 +54,19 @@
 
 <main id="main">
 
-<section class="page-hero">
-  <img src="assets/img/refinery-plant.jpg" alt="Oil and gas processing plant">
+<section class="page-hero page-hero--split">
+  <img src="assets/img/refinery-plant.jpg" alt="" aria-hidden="true">
   <div class="container">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>Oil &amp; gas</span></nav>
-    <h1 class="reveal">Oil &amp; gas.</h1>
-    <p class="lead reveal" data-delay="1">Asset integrity, material supply and static equipment rehabilitation for the oil &amp; gas industry, serving major companies, projects and contractors.</p>
-    <p class="page-hero__quote reveal" data-delay="2">“Chase the vision, not the money. The money will end up following you.”</p>
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>Oil &amp; gas</span></nav>
+      <h1 class="reveal">Oil &amp; gas.</h1>
+      <p class="lead reveal" data-delay="1">Asset integrity, material supply and static equipment rehabilitation for the oil &amp; gas industry, serving major companies, projects and contractors.</p>
+      <div class="page-hero__tags reveal" data-delay="2"><span>Asset integrity</span><span>Material supply</span><span>Equipment rehabilitation</span></div>
+    </div>
+    <div class="page-hero__img reveal" data-delay="2">
+      <img src="assets/img/refinery-plant.jpg" alt="Oil and gas processing plant">
+      <div class="page-hero__chip">API &middot; CSWIP &middot; NACE<small>Certified inspection teams</small></div>
+    </div>
   </div>
 </section>
 

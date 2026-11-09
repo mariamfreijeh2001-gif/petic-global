@@ -5,8 +5,13 @@
   // Sticky header shadow
   var header = document.querySelector('.header');
   var toTop = document.querySelector('.to-top');
+  var progress = document.querySelector('.header__progress');
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
+    if (progress) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (max > 0 ? Math.min(y / max, 1) * 100 : 0) + '%';
+    }
     if (header) header.classList.toggle('is-scrolled', y > 10);
     if (toTop) toTop.classList.toggle('is-visible', y > 600);
   }

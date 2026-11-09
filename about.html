@@ -44,6 +44,7 @@
     <a class="btn btn--gold btn--sm header__cta" href="assets/docs/PETIC-Global-Company-Profile.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M4 20h16"/></svg>Download Profile</a>
     <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span></button>
   </div>
+  <div class="header__progress" aria-hidden="true"></div>
 </header>
 <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
   <ul><li><a href="index.html">Home</a></li><li><a href="about.html" class="is-active">About Us</a></li><li><a href="our-activities.html">Our Activities</a></li><li><ul class="mobile-sub"><li><a href="agriculture.html">Agriculture</a></li><li><a href="roads-construction.html">Roads Construction</a></li><li><a href="civil-works-and-construction.html">Civil Works & Construction</a></li><li><a href="oil-and-gas.html">Oil & Gas</a></li></ul></li><li><a href="contact.html">Contact Us</a></li></ul>
@@ -53,13 +54,19 @@
 
 <main id="main">
 
-<section class="page-hero">
-  <img src="assets/img/site-engineer.jpg" alt="Site engineer overseeing construction works">
+<section class="page-hero page-hero--split">
+  <img src="assets/img/site-engineer.jpg" alt="" aria-hidden="true">
   <div class="container">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>About us</span></nav>
-    <h1 class="reveal">About PETIC GLOBAL.</h1>
-    <p class="lead reveal" data-delay="1">A group established across the Middle East and Africa, providing quality construction projects and engineering services in the sector of oil &amp; gas, infrastructure, manufacturing and agriculture.</p>
-    <p class="page-hero__quote reveal" data-delay="2">“Chase the vision, not the money. The money will end up following you.”</p>
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>About us</span></nav>
+      <h1 class="reveal">About PETIC GLOBAL.</h1>
+      <p class="lead reveal" data-delay="1">A group established across the Middle East and Africa, providing quality construction projects and engineering services in the sector of oil &amp; gas, infrastructure, manufacturing and agriculture.</p>
+      <div class="page-hero__tags reveal" data-delay="2"><span>Construction</span><span>Infrastructure</span><span>Manufacturing</span><span>Agriculture</span><span>Oil &amp; gas</span></div>
+    </div>
+    <div class="page-hero__img reveal" data-delay="2">
+      <img src="assets/img/site-engineer.jpg" alt="Site engineer overseeing construction works">
+      <div class="page-hero__chip">77+ projects<small>Private and public sectors worldwide</small></div>
+    </div>
   </div>
 </section>
 
@@ -136,10 +143,10 @@
   <div class="container">
     <div class="section-head section-head--center reveal"><span class="eyebrow">Our licences</span><h2>Registered, certified and accountable.</h2><p class="lead">Certificates of incorporation, registrations and memberships held by the group’s companies in East Africa.</p></div>
     <div class="gallery reveal">
-      <img src="assets/img/license-incorporation-tanzania.jpg" alt="Certificate of incorporation, Tanzania" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff">
-      <img src="assets/img/license-registration-1.jpg" alt="Company registration document" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff">
-      <img src="assets/img/license-registration-2.jpg" alt="Company registration document" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff">
-      <img src="assets/img/license-uma-certificate.jpg" alt="Uganda Manufacturers Association membership certificate" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff">
+      <figure><img src="assets/img/license-incorporation-tanzania.jpg" alt="Certificate of incorporation, Tanzania" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff"><figcaption>Certificate of Incorporation, Tanzania</figcaption></figure>
+      <figure><img src="assets/img/license-registration-1.jpg" alt="Company registration, Rwanda Development Board" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff"><figcaption>Company registration, Rwanda</figcaption></figure>
+      <figure><img src="assets/img/license-registration-2.jpg" alt="Business activities registration, Rwanda Development Board" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff"><figcaption>Business activities, Rwanda</figcaption></figure>
+      <figure><img src="assets/img/license-uma-certificate.jpg" alt="Uganda Manufacturers Association membership certificate" loading="lazy" style="aspect-ratio:3/4;object-fit:contain;background:#fff"><figcaption>Uganda Manufacturers Association member</figcaption></figure>
     </div>
   </div>
 </section>
@@ -147,12 +154,7 @@
 <section class="section section--tight">
   <div class="container">
     <div class="section-head section-head--center reveal"><span class="eyebrow">Our partners</span><h2>Trusted by global brands.</h2></div>
-    <div class="partners reveal">
-      <div class="partner"><img src="assets/img/partner-almaha.jpg" alt="Almaha for Industry" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-linex.jpg" alt="LINE-X" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-petro-sharq.jpg" alt="Petro Sharq Group" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-teamone.jpg" alt="TeamOne Shipping &amp; Clearing" loading="lazy"></div>
-      <div class="partner"><img src="assets/img/partner-nature-petroleum.jpg" alt="Nature for Petroleum, Gas and Minerals" loading="lazy"></div>
+    <div class="marquee reveal" aria-label="Partner logos"><div class="marquee__track"><div class="partner"><img src="assets/img/partner-almaha.jpg" alt="Almaha for Industry" loading="lazy"></div><div class="partner"><img src="assets/img/partner-linex.jpg" alt="LINE-X" loading="lazy"></div><div class="partner"><img src="assets/img/partner-petro-sharq.jpg" alt="Petro Sharq Group" loading="lazy"></div><div class="partner"><img src="assets/img/partner-teamone.jpg" alt="TeamOne Shipping &amp; Clearing" loading="lazy"></div><div class="partner"><img src="assets/img/partner-nature-petroleum.jpg" alt="Nature for Petroleum, Gas and Minerals" loading="lazy"></div><div class="partner"><img src="assets/img/partner-almaha.jpg" alt="Almaha for Industry" loading="lazy"></div><div class="partner"><img src="assets/img/partner-linex.jpg" alt="LINE-X" loading="lazy"></div><div class="partner"><img src="assets/img/partner-petro-sharq.jpg" alt="Petro Sharq Group" loading="lazy"></div><div class="partner"><img src="assets/img/partner-teamone.jpg" alt="TeamOne Shipping &amp; Clearing" loading="lazy"></div><div class="partner"><img src="assets/img/partner-nature-petroleum.jpg" alt="Nature for Petroleum, Gas and Minerals" loading="lazy"></div></div></div>
     </div>
   </div>
 </section>
