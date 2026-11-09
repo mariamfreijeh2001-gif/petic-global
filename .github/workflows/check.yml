@@ -1,0 +1,25 @@
+# Verifies that the committed HTML matches the generator output and that
+# the files are formatted with Prettier.
+name: Check
+
+on:
+  pull_request:
+  push:
+    branches: [main, master, claude/zealous-cerf-cv9wn2]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Regenerate pages
+        run: python3 tools/build.py
+      - name: Format
+        run: npx --yes prettier@3.3.3 --write "*.html" "assets/css/style.css" "assets/js/main.js"
+      - name: Fail if generated output differs from the commit
+        run: git diff --exit-code
+      - name: Validate HTML
+        run: npx --yes html-validate@8.24.2 "*.html"

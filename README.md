@@ -24,7 +24,9 @@ assets/css/style.css   design system + all page styles
 assets/js/main.js      menu, sticky header, scroll animations, counters, contact form
 assets/img/            images (see "Replacing images" below)
 assets/docs/           company profile PDF
-tools/build.py         generator that writes the HTML pages (optional)
+tools/build.py         generator that writes the HTML pages
+tools/icons.py         inline SVG icons used by the generator
+.github/workflows/     GitHub Pages deployment and a build/format/validate check
 ```
 
 ## Replacing images
@@ -59,6 +61,22 @@ python3 tools/build.py
 ```
 
 The script rewrites all eight pages with a consistent header, footer and navigation.
+Then format and validate before committing (the CI check does the same):
+
+```bash
+npx prettier@3.3.3 --write "*.html" "assets/css/style.css" "assets/js/main.js"
+```
+
+```bash
+npx html-validate@8.24.2 "*.html"
+```
+
+## Hosting on GitHub Pages
+
+The workflow in `.github/workflows/pages.yml` publishes the site on every push.
+Enable it once in the repository settings: **Settings → Pages → Build and deployment →
+Source: GitHub Actions**. To use the petic-global.com domain, add a `CNAME` file containing
+the domain and point the domain's DNS at GitHub Pages.
 
 ## Contact form
 
