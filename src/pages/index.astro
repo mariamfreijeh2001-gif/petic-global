@@ -16,24 +16,39 @@ const stats = [
   { icon: 'pin', value: 3, suffix: '', label: 'Operating hubs: Al Khobar, Jubail, Qatar' },
 ] as const;
 
-const presence = [
-  { country: 'Qatar', place: 'Doha', text: 'Group headquarters on Salwa Road.' },
+const regions = [
   {
-    country: 'Saudi Arabia',
-    place: 'Al Khobar &amp; Jubail',
-    text: 'Operating hubs and a substantial fleet of mobile plant.',
+    name: 'Gulf States',
+    title: 'Middle East operations',
+    countries: [
+      { code: 'QA', name: 'Qatar', place: 'Doha', text: 'Group headquarters on Salwa Road.' },
+      {
+        code: 'SA',
+        name: 'Saudi Arabia',
+        place: 'Al Khobar & Jubail',
+        text: 'Operating hubs and a substantial fleet of mobile plant.',
+      },
+      {
+        code: 'YE',
+        name: 'Yemen',
+        place: 'Oilfield supply',
+        text: 'Offices, workshops, warehousing and covered storage.',
+      },
+    ],
   },
   {
-    country: 'Tanzania',
-    place: 'Dar es Salaam',
-    text: 'East Trading &amp; Manufacturing Company: roads, civil works, construction.',
-  },
-  { country: 'Rwanda', place: 'Manufacturing', text: 'Household and pharmaceutical products.' },
-  { country: 'Uganda', place: 'Manufacturing', text: 'Gas cylinder production.' },
-  {
-    country: 'Yemen',
-    place: 'Oilfield supply',
-    text: 'Offices, workshops, warehousing and covered storage.',
+    name: 'East Africa',
+    title: 'East African operations',
+    countries: [
+      {
+        code: 'TZ',
+        name: 'Tanzania',
+        place: 'Dar es Salaam',
+        text: 'East Trading & Manufacturing Company: roads, civil works and construction.',
+      },
+      { code: 'RW', name: 'Rwanda', place: 'Manufacturing', text: 'Household and pharmaceutical products.' },
+      { code: 'UG', name: 'Uganda', place: 'Manufacturing', text: 'Gas cylinder production.' },
+    ],
   },
 ];
 ---
@@ -75,9 +90,6 @@ const presence = [
             About the group
           </a>
         </div>
-        <p class="hero__quote reveal" data-delay="4">
-          “{site.quote}”
-        </p>
       </div>
       <div class="hero__panel reveal" data-delay="2">
         <div class="hero__float">
@@ -432,7 +444,15 @@ const presence = [
     </div>
   </section>
 
-  <section class="section section--sand">
+  <section class="section section--navy regions-band">
+    <Image
+      src={img('world-map.png')}
+      alt=""
+      aria-hidden="true"
+      class="regions-band__map"
+      width={1040}
+      loading="lazy"
+    />
     <div class="container">
       <div class="section-head section-head--split">
         <div class="reveal">
@@ -444,12 +464,30 @@ const presence = [
           keep growing.
         </p>
       </div>
-      <div class="presence">
-        {presence.map((p, i) => (
-          <div class="place reveal" data-delay={Math.min(i, 4) || undefined}>
-            <b>{p.country.toUpperCase()}</b>
-            <h3 set:html={p.place} />
-            <p set:html={p.text} />
+      <div class="regions">
+        {regions.map((region, i) => (
+          <div class="region reveal" data-delay={i || undefined}>
+            <header class="region__head">
+              <div>
+                <span class="region__label">{region.name}</span>
+                <h3>{region.title}</h3>
+              </div>
+              <b>{region.countries.length} countries</b>
+            </header>
+            <ul class="region__list">
+              {region.countries.map((c) => (
+                <li>
+                  <span class="region__code" aria-hidden="true">
+                    {c.code}
+                  </span>
+                  <div>
+                    <strong>{c.name}</strong>
+                    <span class="region__place">{c.place}</span>
+                    <p>{c.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
