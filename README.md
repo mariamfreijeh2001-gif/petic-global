@@ -37,20 +37,19 @@ Recommended sizes are in landscape unless noted.
 | File | Used for | Suggested size |
 | --- | --- | --- |
 | `logo.png` | Header and footer logo (transparent PNG) | 800 × 320 |
-| `hero-oil-rig.jpg` | Home hero background, activity cards | 2400 × 1600 |
-| `steel-frame-worker.jpg` | Home "Our specialties", civil works hero | 1800 × 1200 |
-| `industrial-worker.jpg` | Home "Why choose us" | 1600 × 1200 |
-| `construction-worker.jpg` | Civil works card, Our activities hero | 1800 × 1200 |
-| `road-asphalt.jpg` | Roads card, roads hero | 1800 × 1200 |
-| `site-engineer.jpg` | About hero, Our activities card | 2400 × 1400 |
-| `engineers-warehouse.jpg` | Contact hero, civil works gallery | 1600 × 1200 |
-| `rebar-crew.jpg` | About mission, galleries | 1600 × 1100 |
-| `refinery-plant.jpg` | Oil & gas hero and card | 2400 × 1600 |
-| `gas-plant-portrait.jpg` | About page (portrait) | 1000 × 1375 |
-| `steel-pipes.jpg` | Oil & gas gallery | 1200 × 800 |
+| `hero-oil-rig.jpg` | Home hero background | 2400 × 1600 |
+| `oil-gas-plant-1/2/3.jpg` | Home specialties, About and Oil & Gas headers, galleries | 1800 × 1200 |
+| `oil-rig-dusk.jpg` | Home vision quote background | 2000 × 1200 |
+| `oil-rig-move.jpg`, `oil-offshore-rig.jpg`, `oil-maintenance-crew.jpg`, `oil-pipes-yard.jpg` | Our activities and Oil & Gas page | 1200 × 800 |
+| `roads-paving.jpg`, `roads-rollers.jpg`, `roads-asphalt-fresh.jpg`, `roads-tipper.jpg` | Roads cards, header and gallery | 1800 × 1200 |
+| `civil-bridge-beam.jpg`, `civil-tank-construction.jpg`, `civil-pipeline.jpg`, `civil-earthworks.jpg` | Civil works cards, header and gallery | 1800 × 1200 |
+| `fleet-mixer-truck.jpg`, `fleet-loader.jpg`, `fleet-tipper-trucks.jpg` | Equipment fleet gallery, Contact header | 1200 × 800 |
 | `agri-*.jpg` | Agriculture page galleries and cards | 1200 × 800 |
 | `license-*.jpg` | About page licences (portrait) | 800 × 1100 |
 | `partner-*.jpg` | Partner logos | any, ~400 × 120 |
+
+Most project photos were taken from the company profile PDF, so they are limited to about
+1200 px wide. Replacing them with the original full-size photos will sharpen the site.
 
 ## Editing content
 
