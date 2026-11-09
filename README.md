@@ -23,7 +23,7 @@ Netlify, cPanel, etc.).
 assets/css/style.css   design system + all page styles
 assets/js/main.js      menu, sticky header, scroll animations, counters, contact form
 assets/img/            images (see "Replacing images" below)
-assets/docs/           company profile PDF
+PETIC-Global-Company-Profile.pdf   company profile (replace this file to update the download)
 tools/build.py         generator that writes the HTML pages
 tools/icons.py         inline SVG icons used by the generator
 .github/workflows/     GitHub Pages deployment and a build/format/validate check
@@ -50,6 +50,12 @@ Recommended sizes are in landscape unless noted.
 
 Most project photos were taken from the company profile PDF, so they are limited to about
 1200 px wide. Replacing them with the original full-size photos will sharpen the site.
+
+## Updating the company profile
+
+The "Download Profile" buttons link to `PETIC-Global-Company-Profile.pdf` in the project root.
+To publish a new profile, replace that file with the new PDF using the exact same name.
+GitHub rejects files larger than 100 MB, so keep the PDF below that.
 
 ## Editing content
 

@@ -20,7 +20,7 @@ SALES = 'sales@petic-global.com'
 CEO = 'ceo@petic-global.com'
 ADDRESS = '1st Floor, Office 08, Building 382, Street 340, Salwa Road, Zone 55, P.O. Box 5090, Doha, Qatar'
 TZ_ADDRESS = 'Kisutu Street 2423, Dar es Salaam, Tanzania'
-PROFILE = 'assets/docs/PETIC-Global-Company-Profile.pdf'
+PROFILE = 'PETIC-Global-Company-Profile.pdf'
 QUOTE = 'Chase the vision, not the money. The money will end up following you.'
 
 
