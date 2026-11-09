@@ -1,0 +1,54 @@
+---
+/** Compact horizontal activity entry: photo on one side, text on the other. Alternates sides via `flip`. */
+import Icon from './Icon.astro';
+import type { IconName } from './Icon.astro';
+import { Image } from 'astro:assets';
+import { img } from '../lib/images';
+
+interface Props {
+  href: string;
+  number: string;
+  title: string;
+  text: string;
+  image: string;
+  alt: string;
+  icon: IconName;
+  tags?: string[];
+  flip?: boolean;
+}
+
+const { href, number, title, text, image, alt, icon, tags = [], flip = false } = Astro.props;
+---
+
+<article class:list={['activity-row reveal', { 'activity-row--flip': flip }]}>
+  <a class="activity-row__media" href={href} aria-hidden="true" tabindex="-1">
+    <Image
+      src={img(image)}
+      alt={alt}
+      widths={[400, 700, 900]}
+      sizes="(min-width: 900px) 38vw, 100vw"
+      loading="lazy"
+    />
+    <span class="activity-row__num">{number}</span>
+  </a>
+  <div class="activity-row__body">
+    <i class="activity-row__icon">
+      <Icon name={icon} />
+    </i>
+    <h3>
+      <a href={href} set:html={title} />
+    </h3>
+    <p set:html={text} />
+    {tags.length > 0 && (
+      <ul class="activity-row__tags">
+        {tags.map((t) => (
+          <li>{t}</li>
+        ))}
+      </ul>
+    )}
+    <a class="link-arrow" href={href}>
+      Learn more
+      <Icon name="arrow" />
+    </a>
+  </div>
+</article>
