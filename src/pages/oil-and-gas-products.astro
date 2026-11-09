@@ -3,40 +3,218 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import PageHero from '../components/PageHero.astro';
 import SideNav from '../components/SideNav.astro';
-import Gallery from '../components/Gallery.astro';
 import ServiceList from '../components/ServiceList.astro';
-import Feature from '../components/Feature.astro';
+import ProductCarousel from '../components/ProductCarousel.astro';
 import Cta from '../components/Cta.astro';
 
 const fittings = [
-  'Reducing tees, straight tees and straight crosses',
-  '45°, 90° (R=3.0D) and 180° elbows, forged elbows and inclined tees',
-  'Concentric and eccentric reducers, flanging nipples',
-  'Socket elbows, socket tees, socket crosses and pipe sockets',
-  'Single and double socket couplings, female thread couplings',
-  'Socket unions, threaded elbows, threaded unions and weldolets',
+  {
+    image: 'products/flanges.png',
+    title: 'Weld neck &amp; slip-on flanges',
+    text: 'A complete range of industrial flanges for reliable, high-performance piping connections, including blind, socket weld, threaded, lap joint and custom types.',
+    specs: [
+      '<b>ASME B16.5</b> NPS ½" to 24", class 150 to 2500',
+      '<b>ASME B16.47</b> NPS 26" to 60", class 150 to 900',
+    ],
+  },
+  {
+    image: 'products/reducing-tee.png',
+    title: 'Reducing tee',
+    text: 'Efficient flow distribution between pipes of different diameters in industrial piping systems, manufactured with high precision and durability.',
+    specs: ['<b>ASME B16.9</b> NPS ½" to 48"', 'SCH 40, 80, 160, XXS'],
+  },
+  {
+    image: 'products/elbow-90.png',
+    title: '90° elbow R=3.0D',
+    text: 'Designed to provide a smoother flow transition with reduced turbulence and pressure loss.',
+    specs: ['<b>ASME B16.9</b> welded fittings', 'Carbon, stainless, duplex and alloy steel'],
+  },
+  {
+    image: 'products/elbow-180.png',
+    title: '180° elbow',
+    text: 'Engineered to ensure complete flow redirection while maintaining system integrity and operational efficiency.',
+    specs: ['<b>ASME B16.9</b> welded fittings', 'SCH 40, 80, 160, XXS'],
+  },
+  {
+    image: 'products/socket-elbow-45.png',
+    title: '45° socket elbow',
+    text: 'High-quality socket elbows for secure and efficient directional changes in industrial piping systems, built to international standards.',
+    specs: ['<b>ASME B16.11</b> NPS ⅛" to 4"', 'Class 3000, 6000, 9000'],
+  },
+  {
+    image: 'products/socket-cross.png',
+    title: 'Socket cross',
+    text: 'Reliable multi-directional flow distribution in complex piping networks, combining precision manufacturing with robust material quality.',
+    specs: ['<b>ASME B16.11</b> socket weld', 'Class 3000, 6000, 9000'],
+  },
+  {
+    image: 'products/single-end-coupling.png',
+    title: 'Single end coupling',
+    text: 'Premium couplings delivering strong, dependable pipe connections for industrial piping systems, made for durability and operational reliability.',
+    specs: ['Single and double socket, female thread', 'Socket union, threaded union'],
+  },
+  {
+    image: 'products/socket-tee.png',
+    title: 'Socket tee',
+    text: 'Socket tee fittings developed for efficient branch connections in industrial piping networks, manufactured under strict quality control.',
+    specs: ['<b>ASME B16.11</b> socket weld', 'Weldolets to <b>MSS SP-97</b>'],
+  },
+  {
+    image: 'products/forged-elbow.png',
+    title: 'Forged elbow',
+    text: 'Dependable performance in critical piping systems requiring high mechanical strength and precision.',
+    specs: ['Forged inclined tees also available', 'Class 3000 to 9000'],
+  },
+  {
+    image: 'products/forged-elbow-2.png',
+    title: 'Heavy-duty forged elbow',
+    text: 'Engineered for heavy-duty industrial use, combining robust construction with high resistance to corrosion and mechanical stress.',
+    specs: ['<b>MSS SP-97</b> branch outlets NPS ⅛" to 36"', 'Class 1500 to 9000'],
+  },
 ];
-const flanges = [
-  'Weld neck, slip-on, blind, socket weld, threaded and lap joint flanges',
-  'Plate, spectacle blind and loose flanges, and custom types to order',
-  'ASME B16.5 forged flanges NPS ½" to 24", class 150 to 2500',
-  'ASME B16.47 Series A and B flanges NPS 26" to 60", class 150 to 900',
-  'ASME B16.11 socket weld and threaded fittings NPS ⅛" to 4", class 3000 to 9000',
-  'ASME B16.9 welded fittings NPS ½" to 48" in SCH 40, 80, 160 and XXS',
-  'MSS SP-97 branch outlet fittings NPS ⅛" to 36", class 1500 to 9000',
+
+const instruments = [
+  {
+    image: 'products/pressure-transmitter.png',
+    title: 'General pressure transmitter',
+    text: 'Diffused silicon sensor with fully digital circuits, stable long-distance signal transmission and an all stainless steel body for gas, hydraulic, environmental and medical industries.',
+    specs: [
+      '<b>Range</b> -0.1 to 100 MPa',
+      '<b>Output</b> 4-20 mA, RS485, 0-5 V, 0-10 V, HART',
+      '<b>Accuracy</b> 0.075% to 0.5% FS',
+    ],
+  },
+  {
+    image: 'products/compact-pressure-transmitter.png',
+    title: 'Compact pressure transmitter',
+    text: 'Ceramic sensor in a stainless steel 304 case, designed for small and medium equipment such as booster pumps and air compressors, and for installation in tight spaces.',
+    specs: [
+      '<b>Range</b> 0 to 5 MPa',
+      '<b>Output</b> 4-20 mA, 0.5-4.5 V, 0-5 V, 0-10 V',
+      '<b>Accuracy</b> 0.1% to 0.5% FS',
+    ],
+  },
+  {
+    image: 'products/oled-pressure-switch.png',
+    title: 'OLED pressure switch',
+    text: 'Intelligent switch with 4-20 mA output, two PNP switching outputs and on-site display. Zero, span, decimal point and set points are adjusted by three-button programming.',
+    specs: ['<b>Range</b> -0.1 to 100 MPa', '<b>Output</b> M12-5P, 4-20 mA', '<b>Switch</b> PNP'],
+  },
+  {
+    image: 'products/level-transmitter.png',
+    title: 'Hydrostatic level transmitter',
+    text: 'Diffused silicon sensing with all-digital circuits and a stainless steel structure, suitable for well water, lake water and water tanks.',
+    specs: [
+      '<b>Range</b> 0 to 400 m',
+      '<b>Output</b> 4-20 mA, RS485, 0-5 V, 0-10 V',
+      '<b>Accuracy</b> 0.25% to 0.5% FS',
+    ],
+  },
+  {
+    image: 'products/split-level-transmitter.png',
+    title: 'Split liquid level transmitter',
+    text: 'Imported pressure-sensitive sensor with laser temperature compensation, integrated junction box, special wiring terminals and a digital display for easy installation and calibration.',
+    specs: [
+      '<b>Range</b> 0 to 400 m',
+      '<b>Output</b> 4-20 mA, RS485, 0-5 V, 0-10 V',
+      '<b>Accuracy</b> 0.25% to 0.5% FS',
+    ],
+  },
+  {
+    image: 'products/temperature-transmitter.png',
+    title: 'Temperature transmitter',
+    text: 'Platinum resistance thermometers and thermocouples for petroleum, chemical, metallurgy, power and hydrology, measuring liquids, vapours, gases and solid surfaces.',
+    specs: [
+      '<b>Range</b> -200 to 400 °C',
+      '<b>Output</b> 4-20 mA, RS485, 0-5 V, 0-10 V',
+      '<b>Accuracy</b> 0.25% to 0.5% FS',
+    ],
+  },
+  {
+    image: 'products/compact-temperature-transmitter.png',
+    title: 'Armoured temperature sensor',
+    text: 'High-reliability platinum resistance in an armoured housing with excellent vibration and shock resistance, transmitting to displays, recorders and DCS.',
+    specs: [
+      '<b>Range</b> -200 to 1,600 °C',
+      '<b>Output</b> 4-20 mA, 4-20 mA + HART',
+      '<b>Accuracy</b> 0.25% to 0.5% FS',
+    ],
+  },
+  {
+    image: 'products/electromagnetic-flowmeter.png',
+    title: 'Electromagnetic flowmeter',
+    text: 'Measures the volume flow of conductive liquids, including strong acids, alkalis and liquid-solid suspensions such as mud and pulp, based on Faraday’s law.',
+    specs: [
+      '<b>Range</b> 0.3 to 12 m/s',
+      '<b>Type</b> split, integral, plug-in',
+      '<b>Pressure</b> 0.6 to 4 MPa',
+    ],
+  },
+  {
+    image: 'products/vortex-flowmeter.png',
+    title: 'Vortex flowmeter',
+    text: 'Intelligent velocity flowmeter using a piezoelectric crystal to detect vortex frequency, with excellent anti-vibration performance, zero drift and no contact with the medium.',
+    specs: [
+      '<b>Diameter</b> DN15 to DN160',
+      '<b>Mounting</b> flange, thread, clamp, plug-in',
+      '<b>Pressure</b> 1.6 to 4 MPa',
+    ],
+  },
+  {
+    image: 'products/thermal-flow-switch.png',
+    title: 'Thermal flow switch',
+    text: 'Real-time monitoring of liquid flow in the pipeline with LED indication of flow increasing, reducing, medium present or moving. Protects pumps from idling.',
+    specs: [
+      '<b>Range</b> water 1-150 cm/s, oil 3-300 cm/s',
+      '<b>Switch</b> relay, PNP',
+      '<b>Probe</b> 15, 18, 40, 60 mm',
+    ],
+  },
 ];
+
+const pipeline = [
+  {
+    image: 'products/pipeline-insulated.jpg',
+    title: 'Insulation &amp; anti-corrosion pipeline',
+    text: 'Pre-insulated and anti-corrosion coated pipeline for long service life in demanding environments.',
+  },
+  {
+    image: 'products/pipeline-p91.jpg',
+    title: 'P91 material',
+    text: 'High-temperature chrome-moly alloy steel pipe and components for power and process plants.',
+  },
+  {
+    image: 'products/pipeline-prefab.jpg',
+    title: 'Factory prefabricated',
+    text: 'Spools and assemblies prefabricated in the workshop for faster, safer installation on site.',
+  },
+  {
+    image: 'products/pipeline-forged-parts.jpg',
+    title: 'Forged assembly parts',
+    text: 'Forged components and assemblies for high-integrity piping systems.',
+  },
+  {
+    image: 'products/pipeline-wear-resistant.jpg',
+    title: 'Wear-resistant pipeline',
+    text: 'Hard-faced pipe and bends for abrasive slurries and solids transport.',
+  },
+  {
+    image: 'products/pipeline-elbow.jpg',
+    title: 'Elbows',
+    text: 'Bends and elbows in all standard radii and wall thicknesses.',
+  },
+  {
+    image: 'products/pipeline-high-pressure.jpg',
+    title: 'High-pressure piping',
+    text: 'Heavy-wall piping for high-pressure service, fabricated and tested to code.',
+  },
+];
+
 const materials = [
   'Carbon steel A105, A350 LF2 / LF3',
   'Stainless steel A182 F304, F304L and more',
   'Duplex and super duplex A182 F51 (UNS S31803 / 2205)',
   'Alloy steel A182 F11, F12, F22 (1.25Cr-0.5Mo / 2.25Cr-1Mo)',
-];
-const pipeline = [
-  'Insulation and anti-corrosion pipeline',
-  'P91 material, factory prefabricated',
-  'Forged assembly parts',
-  'Wear-resistant pipeline',
-  'High-pressure piping and elbows',
 ];
 const upstreamWell = [
   'Cementing',
@@ -80,75 +258,45 @@ const downstream = [
 
   <section class="section">
     <div class="container detail">
-      <div class="prose">
-        <span class="eyebrow reveal">Fittings and flanges</span>
+      <div class="prose prose--wide">
+        <span class="eyebrow reveal">Our products</span>
         <h2 class="reveal">Reliable connections for critical piping systems.</h2>
         <p class="lead reveal" data-delay="1">
-          We manufacture and supply a complete range of industrial fittings and flanges designed for reliable,
-          high-performance piping connections. Engineered for strength, precision and corrosion resistance,
-          they ensure secure sealing performance and long-term durability under demanding operating
-          conditions.
+          We manufacture and supply a complete range of industrial fittings, flanges, pipeline products and
+          instruments. Engineered for strength, precision and corrosion resistance, they ensure secure sealing
+          performance and long-term durability under demanding operating conditions.
         </p>
-        <h3 class="reveal">Forged and socket fittings</h3>
-        <div class="reveal mt-sm">
-          <ServiceList items={fittings} />
+
+        <div class="carousel-head reveal mt-md">
+          <div>
+            <h3>Fittings &amp; flanges</h3>
+            <p>Scroll to browse the range. Drag, swipe or use the arrows.</p>
+          </div>
         </div>
-        <h3 class="reveal">Flanges and size ranges</h3>
-        <div class="reveal mt-sm">
-          <ServiceList items={flanges} />
-        </div>
-        <h3 class="reveal">Common materials</h3>
+        <ProductCarousel id="fittings" items={fittings} />
+
+        <h3 class="reveal mt-md">Common materials</h3>
         <div class="reveal mt-sm">
           <ServiceList items={materials} />
         </div>
 
-        <Gallery
-          items={[
-            { file: 'product-flange.jpg', alt: 'Weld neck and slip-on flanges' },
-            { file: 'pipes-yard-hd.jpg', alt: 'Steel line pipe in the yard' },
-            { file: 'plant-pipes-blue.jpg', alt: 'Installed process piping' },
-          ]}
-        />
-
-        <h3 class="reveal">Pipeline products</h3>
-        <div class="reveal mt-sm">
-          <ServiceList items={pipeline} />
+        <div class="carousel-head reveal mt-lg">
+          <div>
+            <h3>Instrumentation</h3>
+            <p>Pressure, level, temperature and flow instruments with digital outputs.</p>
+          </div>
         </div>
+        <ProductCarousel id="instruments" items={instruments} />
 
-        <h3 class="reveal">Instrumentation</h3>
-        <p class="reveal">
-          Stainless steel pressure, level, temperature and flow instruments with fully digital circuits,
-          stable long-distance signal transmission and high resistance to interference and impact.
-        </p>
-        <div class="grid grid--2 grid--tight mt-sm reveal">
-          <Feature icon="target" title="Pressure transmitters">
-            General diffused-silicon transmitters from -0.1 to 100 MPa with 4-20 mA, RS485, 0-5 V and 0-10 V
-            outputs and accuracy to 0.075% FS, plus compact ceramic-sensor units to 5 MPa for pumps and
-            compressors.
-          </Feature>
-          <Feature icon="layers" title="Level transmitters">
-            Hydrostatic and split liquid level transmitters for wells, lakes and tanks, ranges to 400 m, with
-            digital display and integrated junction box for easy installation and calibration.
-          </Feature>
-          <Feature icon="eye" title="Pressure switches">
-            Intelligent OLED pressure switches with 4-20 mA output, two PNP switching outputs and on-site
-            display, programmable zero, span and set points without potentiometer adjustment.
-          </Feature>
-          <Feature icon="flame" title="Temperature transmitters">
-            Platinum resistance and thermocouple sensors measuring liquids, vapours, gases and surfaces from
-            -200 °C to 1,600 °C, with 4-20 mA and HART outputs.
-          </Feature>
-          <Feature icon="cog" title="Flowmeters">
-            Electromagnetic flowmeters (0.3-12 m/s, split, integral or plug-in) for conductive and corrosive
-            liquids, and vortex flowmeters DN15-DN160 with flange, thread, clamp or plug-in mounting.
-          </Feature>
-          <Feature icon="shield" title="Thermal flow switches">
-            Real-time monitoring of liquid flow with LED indication, relay or PNP outputs and 15-60 mm probes,
-            protecting pumps from idling and monitoring pipeline flow rates.
-          </Feature>
+        <div class="carousel-head reveal mt-lg">
+          <div>
+            <h3>Pipeline products</h3>
+            <p>Pipe, bends and prefabricated assemblies for pressure and abrasive service.</p>
+          </div>
         </div>
+        <ProductCarousel id="pipeline" items={pipeline} contain={false} />
 
-        <h3 class="reveal">Chemical solutions</h3>
+        <h3 class="reveal mt-lg">Chemical solutions</h3>
         <div class="grid grid--3 mt-sm reveal">
           <div class="pillar">
             <h3>Upstream well services</h3>

@@ -135,8 +135,63 @@ function setupContactForm(): void {
   });
 }
 
+/** Product carousels: arrow buttons scroll one card, dots mirror position, drag to scroll with a mouse. */
+function setupCarousels(): void {
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('.carousel__track');
+    const dots = root.querySelector<HTMLElement>('.carousel__dots');
+    if (!track) return;
+    const cards = Array.from(track.children) as HTMLElement[];
+
+    const step = (): number => (cards[0]?.offsetWidth ?? 300) + 18;
+    const pages = (): number => Math.max(1, Math.ceil((track.scrollWidth - track.clientWidth) / step()) + 1);
+
+    const renderDots = (): void => {
+      if (!dots) return;
+      const n = pages();
+      const current = Math.round(track.scrollLeft / step());
+      dots.innerHTML = Array.from(
+        { length: n },
+        (_, i) => `<i class="${i === current ? 'is-active' : ''}"></i>`,
+      ).join('');
+    };
+
+    root.querySelectorAll<HTMLButtonElement>('.carousel__btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const dir = Number(btn.dataset.dir ?? 1);
+        track.scrollBy({ left: dir * step(), behavior: 'smooth' });
+      });
+    });
+
+    // Mouse drag to scroll (touch already scrolls natively).
+    let dragging = false;
+    let startX = 0;
+    let startScroll = 0;
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      dragging = true;
+      startX = e.clientX;
+      startScroll = track.scrollLeft;
+      track.classList.add('is-dragging');
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      track.scrollLeft = startScroll - (e.clientX - startX);
+    });
+    window.addEventListener('pointerup', () => {
+      dragging = false;
+      track.classList.remove('is-dragging');
+    });
+
+    track.addEventListener('scroll', renderDots, { passive: true });
+    window.addEventListener('resize', renderDots);
+    renderDots();
+  });
+}
+
 setupHeader();
 setupMobileMenu();
 setupReveal();
 setupCounters();
 setupContactForm();
+setupCarousels();

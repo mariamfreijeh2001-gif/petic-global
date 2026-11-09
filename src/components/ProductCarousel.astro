@@ -1,0 +1,61 @@
+---
+/**
+ * Horizontally scrolling product carousel with arrow buttons, swipe on touch,
+ * keyboard access and scroll-snap. Each item is an image plus title, text and optional spec lines.
+ */
+import Icon from './Icon.astro';
+import { Image } from 'astro:assets';
+import { img } from '../lib/images';
+
+interface Item {
+  image: string;
+  title: string;
+  text: string;
+  specs?: string[];
+}
+interface Props {
+  id: string;
+  items: Item[];
+  contain?: boolean;
+}
+
+const { id, items, contain = true } = Astro.props;
+---
+
+<div class="carousel" data-carousel id={id}>
+  <div class="carousel__nav">
+    <button type="button" class="carousel__btn" data-dir="-1" aria-label="Previous products">
+      <Icon name="arrow" />
+    </button>
+    <button type="button" class="carousel__btn" data-dir="1" aria-label="Next products">
+      <Icon name="arrow" />
+    </button>
+  </div>
+  <ul class="carousel__track" tabindex="0" aria-label="Product list">
+    {items.map((it) => (
+      <li class="product">
+        <div class:list={['product__media', { 'product__media--contain': contain }]}>
+          <Image
+            src={img(it.image)}
+            alt={it.title}
+            widths={[320, 640]}
+            sizes="(min-width: 900px) 300px, 80vw"
+            loading="lazy"
+          />
+        </div>
+        <div class="product__body">
+          <h3 set:html={it.title} />
+          <p set:html={it.text} />
+          {it.specs && (
+            <ul class="product__specs">
+              {it.specs.map((s) => (
+                <li set:html={s} />
+              ))}
+            </ul>
+          )}
+        </div>
+      </li>
+    ))}
+  </ul>
+  <div class="carousel__dots" aria-hidden="true"></div>
+</div>
