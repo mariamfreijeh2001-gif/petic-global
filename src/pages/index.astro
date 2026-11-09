@@ -11,7 +11,7 @@ import { generalServices, site } from '../data/site';
 
 const stats = [
   { icon: 'trophy', value: 77, suffix: '+', label: 'Projects completed worldwide' },
-  { icon: 'globe', value: 6, suffix: '', label: 'Countries of operation' },
+  { icon: 'globe', value: 8, suffix: '', label: 'Countries of operation' },
   { icon: 'layers', value: 4, suffix: '', label: 'Business sectors' },
   { icon: 'pin', value: 3, suffix: '', label: 'Operating hubs: Al Khobar, Jubail, Qatar' },
 ] as const;
@@ -29,6 +29,12 @@ const regions = [
         text: 'Operating hubs and a substantial fleet of mobile plant.',
       },
       {
+        code: 'OM',
+        name: 'Oman',
+        place: 'Gulf operations',
+        text: 'Projects and services across the Sultanate.',
+      },
+      {
         code: 'YE',
         name: 'Yemen',
         place: 'Oilfield supply',
@@ -37,8 +43,8 @@ const regions = [
     ],
   },
   {
-    name: 'East Africa',
-    title: 'East African operations',
+    name: 'Africa',
+    title: 'African operations',
     countries: [
       {
         code: 'TZ',
@@ -48,6 +54,12 @@ const regions = [
       },
       { code: 'RW', name: 'Rwanda', place: 'Manufacturing', text: 'Household and pharmaceutical products.' },
       { code: 'UG', name: 'Uganda', place: 'Manufacturing', text: 'Gas cylinder production.' },
+      {
+        code: 'DZ',
+        name: 'Algeria',
+        place: 'North Africa',
+        text: 'Extending the group’s presence into North Africa.',
+      },
     ],
   },
 ];
@@ -457,10 +469,10 @@ const regions = [
       <div class="section-head section-head--split">
         <div class="reveal">
           <span class="eyebrow">Where we operate</span>
-          <h2>Present across the Gulf and East Africa.</h2>
+          <h2>Present across the Gulf and Africa.</h2>
         </div>
         <p class="lead reveal" data-delay="1">
-          Operating hubs in the Gulf States and East Africa, with manufacturing and supply operations that
+          Operating hubs in the Gulf States and across Africa, with manufacturing and supply operations that
           keep growing.
         </p>
       </div>
