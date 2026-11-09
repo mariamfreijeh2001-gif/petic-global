@@ -293,16 +293,7 @@ p:last-child {
   height: 14px;
   color: var(--gold);
 }
-.topbar__social {
-  display: flex;
-  gap: 14px;
-}
-.topbar__social svg {
-  width: 15px;
-  height: 15px;
-}
 @media (max-width: 760px) {
-  .topbar__social,
   .topbar__contacts a:nth-child(2),
   .topbar__contacts a:nth-child(3) {
     display: none;
@@ -2172,33 +2163,6 @@ body.menu-open {
 }
 .footer__contact a:hover {
   color: var(--gold);
-}
-.footer__social {
-  display: flex;
-  gap: 10px;
-  margin-top: 22px;
-}
-.footer__social a {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition:
-    background 0.2s,
-    color 0.2s,
-    transform 0.2s;
-}
-.footer__social a:hover {
-  background: var(--gold);
-  color: var(--navy);
-  transform: translateY(-2px);
-}
-.footer__social svg {
-  width: 17px;
-  height: 17px;
 }
 .footer__bottom {
   display: flex;

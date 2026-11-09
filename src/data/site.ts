@@ -19,12 +19,6 @@ export const site = {
   tanzaniaAddress: 'Kisutu Street 2423, Dar es Salaam, Tanzania',
   profile: '/Petic-International-Business-Profile.pdf',
   since: 2002,
-  social: {
-    facebook: '#',
-    instagram: '#',
-    x: '#',
-    linkedin: '#',
-  },
 } as const;
 
 export interface NavItem {
